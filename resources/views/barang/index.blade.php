@@ -42,7 +42,7 @@
                     <th scope="col" class="sort" data-sort="status">Jenis Barang</th>
                     <th scope="col" class="sort" data-sort="completion">Deskripsi</th>
                     @if(Auth()->user()->role == 1)
-                    <th scope="col"></th>
+                    <th scope="col">Action</th>
                     @endif
                   </tr>
                 </thead>
@@ -65,16 +65,9 @@
                       <span class="name mb-0 text-sm">{{$b->deskripsi}}</span>
                     </td>
                     @if(Auth()->user()->role == 1)
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="{{route('barang.edit',[$b->id])}}"><i class="fa fa-edit" aria-hidden="true"></i>Edit</a>
-                          <a class="dropdown-item" href="{{route('barang.destroy',[$b->id])}}"><i class="fa fa-trash" aria-hidden="true"></i>Hapus</a>
-                        </div>
-                      </div>
+                     <td class="text-left">
+                        <a class="btn btn-sm btn-neutral" href="{{route('barang.edit',[$b->id])}}"><i class="fa fa-edit" style="color: green;" aria-hidden="true"></i></a>
+                        <a class="btn btn-sm btn-neutral" href="{{route('barang.destroy',[$b->id])}}"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
                     </td>
                     @endif
                   </tr>
