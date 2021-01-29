@@ -34,3 +34,16 @@ Route::get('/barang/{id}','BarangController@destroy')->name('barang.destroy');
 Route::get('/barang/{id}/edit','BarangController@edit')->name('barang.edit');
 Route::put('/barang/{id}/update','BarangController@update')->name('barang.update');
 
+Route::get('/beritamasuk','BeritaMasukController@index')->name('beritamasuk.index');
+Route::get('/beritamasuk/tambah','BeritaMasukController@create')->name('beritamasuk.create');
+Route::post('/beritamasuk/store','BeritaMasukController@store')->name('beritamasuk.store');
+Route::get('/beritamasuk/{id}','BeritaMasukController@destroy')->name('beritamasuk.destroy');
+Route::get('/beritamasuk/{id}/edit','BeritaMasukController@edit')->name('beritamasuk.edit');
+Route::put('/beritamasuk/{id}/update','BeritaMasukController@update')->name('beritamasuk.update');
+
+Route::get('/beritakeluar','BeritaKeluarController@index')->name('beritakeluar.index');
+Route::get('/beritakeluar/tambah','BeritaKeluarController@create')->name('beritakeluar.create');
+Route::post('/beritakeluar/store','BeritaKeluarController@store')->name('beritakeluar.store');
+Route::get('/beritakeluar/{id}','BeritaKeluarController@destroy')->name('beritakeluar.destroy');
+Route::get('/beritakeluar/{id}/edit','BeritaKeluarController@edit')->name('beritakeluar.edit');
+Route::put('/beritakeluar/{id}/update','BeritaKeluarController@update')->name('beritakeluar.update');

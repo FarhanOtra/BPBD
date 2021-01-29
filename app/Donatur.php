@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Storage extends Model
+class Donatur extends Model
 {
-    protected $table = 'storage';
+    protected $table = 'donatur';
 }

@@ -7,16 +7,16 @@
         <div class="header-body">
           <div class="row align-items-center">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Barang</h6>
+              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Berita Masuk</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item active" aria-current="page">List Barang</li>
+                  <li class="breadcrumb-item active" aria-current="page">Rekap Berita Masuk</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="{{route('barang.create')}}" class="btn btn-sm btn-neutral">+ Tambah Barang</a>
+              <a href="{{route('barang.create')}}" class="btn btn-sm btn-neutral">+ Tambah Berita Masuk</a>
             </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">List Barang</h3>
+              <h3 class="mb-0">Rekap Barang Masuk</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
@@ -37,17 +37,16 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">No.</th>
-                    <th scope="col" class="sort" data-sort="name">ID Barang</th>
-                    <th scope="col" class="sort" data-sort="budget">Nama Barang</th>
-                    <th scope="col" class="sort" data-sort="status">Jenis Barang</th>
-                    <th scope="col" class="sort" data-sort="completion">Deskripsi</th>
+                    <th scope="col" class="sort" data-sort="name">Tanggal</th>
+                    <th scope="col" class="sort" data-sort="budget">Nama Donatur</th>
+                    <th scope="col" class="sort" data-sort="status">Nama Penerima</th>
                     @if(Auth()->user()->role == 1)
                     <th scope="col"></th>
                     @endif
                   </tr>
                 </thead>
                 <tbody class="list">
-                @foreach($barang as $b)
+                @foreach($beritamasuk as $b)
                   <tr>
                     <td>
                       <span class="name mb-0 text-sm">{{$loop->iteration}}</span>

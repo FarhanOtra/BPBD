@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('argon') }}/img/brand/blue.png">
+                            <img src="{{ asset('argon') }}/img/brand/bpbd.png">
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -53,13 +53,13 @@
                     <div class="collapse show" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}">
+                                <a class="nav-link" href="{{ route('beritamasuk.index') }}">
                                 <i class="ni ni-single-copy-04 text-green" style="color: #f4645f;"></i>
                                     {{ __('Barang Masuk') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">
+                                <a class="nav-link" href="{{ route('beritakeluar.index') }}">
                                 <i class="ni ni-single-copy-04" style="color: #f4645f;"></i>
                                     {{ __('Barang Keluar') }}
                                 </a>
