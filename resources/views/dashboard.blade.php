@@ -4,9 +4,9 @@
     @include('layouts.headers.cards')
     
     <div class="container-fluid mt--7">
-        <div class="row">
-            <div class="col-xl-8 mb-5 mb-xl-0">
-                <div class="card shadow">
+        <!-- <div class="row">
+            <div class="col-xl-8 mb-5 mb-xl-0"> -->
+                <!-- <div class="card shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
@@ -33,14 +33,14 @@
                     </div>
                     <div class="card-body">
                         <!-- Chart -->
-                        <div class="chart">
+                        <!-- <div class="chart"> -->
                             <!-- Chart wrapper -->
-                            <canvas id="chart-sales" class="chart-canvas"></canvas>
+                           <!-- <canvas id="chart-sales" class="chart-canvas"></canvas>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4">
+            </div> -->
+            <!-- <div class="col-xl-4">
                 <div class="card shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
@@ -52,13 +52,13 @@
                     </div>
                     <div class="card-body">
                         <!-- Chart -->
-                        <div class="chart">
+                       <!-- <div class="chart">
                             <canvas id="chart-orders" class="chart-canvas"></canvas>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
         <div class="row mt-5">
             <div class="col-xl-8 mb-5 mb-xl-0">
                 <div class="card shadow">
@@ -163,18 +163,25 @@
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="mb-0">Social traffic</h3>
+                        <table class="table align-items-center table-flush">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Warning!</strong> Product almost expired!
                             </div>
-                            <div class="col text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Warning!</strong> Product almost expired!
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                <strong>Warning!</strong> Product almost expired!
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                <strong>Warning!</strong> Product almost expired!
                             </div>
                         </div>
                     </div>
                     <div class="table-responsive">
                         <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
+                        
+                            <!-- <thead class="thead-light">
                                 <tr>
                                     <th scope="col">Referral</th>
                                     <th scope="col">Visitors</th>
@@ -272,7 +279,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                            </tbody>
+                            </tbody> -->
                         </table>
                     </div>
                 </div>
