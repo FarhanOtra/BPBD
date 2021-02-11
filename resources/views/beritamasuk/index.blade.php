@@ -16,7 +16,7 @@
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="{{route('barang.create')}}" class="btn btn-sm btn-neutral">+ Tambah Berita Masuk</a>
+              <a href="{{route('beritamasuk.create')}}" class="btn btn-sm btn-neutral">+ Tambah Berita Masuk</a>
             </div>
           </div>
         </div>
@@ -29,17 +29,19 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">Rekap Barang Masuk</h3>
+              <h3 class="mb-0">Rekap Berita Masuk</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col" class="sort" data-sort="name">No.</th>
-                    <th scope="col" class="sort" data-sort="name">Tanggal</th>
-                    <th scope="col" class="sort" data-sort="budget">Nama Donatur</th>
-                    <th scope="col" class="sort" data-sort="status">Nama Penerima</th>
+                    <th scope="col" class="sort">No.</th>
+                    <th scope="col" class="sort">Tanggal</th>
+                    <th scope="col" class="sort" >Nama Donatur</th>
+                    <th scope="col" class="sort" >Instansi Donatur</th>
+                    <th scope="col" class="sort" >Nama Penerima</th>
+                    <th scope="col" class="sort" >Instansi Penerima</th>
                     @if(Auth()->user()->role == 1)
                     <th scope="col">Action</th>
                     @endif
@@ -58,7 +60,13 @@
                       <span class="name mb-0 text-sm">{{$b->donatur->nama}}</span>
                     </td>
                     <td>
+                      <span class="name mb-0 text-sm">{{$b->donatur->instansi}}</span>
+                    </td>
+                    <td>
                       <span class="name mb-0 text-sm">{{$b->penerima->nama}}</span>
+                    </td>
+                    <td>
+                      <span class="name mb-0 text-sm">{{$b->penerima->instansi}}</span>
                     </td>
                     @if(Auth()->user()->role == 1)
                     <td class="text-left">
@@ -100,7 +108,6 @@
           </div>
         </div>
       </div>
-      
     @include('layouts.footers.auth')
   </div>
 @endsection
