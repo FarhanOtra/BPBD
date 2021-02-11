@@ -158,6 +158,9 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <br>
+                <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
@@ -259,22 +262,18 @@
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
+                        <div class="col">
                         <table class="table align-items-center table-flush">
                             <div class="alert alert-danger" role="alert">
-                                <strong>Warning!</strong> Product almost expired!
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                                <strong>Warning!</strong> Product almost expired!
+                                <strong>Produk</strong> sudah kedaluwarsa!
                             </div>
                             <div class="alert alert-warning" role="alert">
-                                <strong>Warning!</strong> Product almost expired!
+                                <strong>Produk</strong> akan kedaluwarsa!
                             </div>
-                            <div class="alert alert-warning" role="alert">
-                                <strong>Warning!</strong> Product almost expired!
-                            </div>
+                        </table>
                         </div>
                     </div>
-                    <div class="table-responsive">
+                    <!-- <div class="table-responsive"> -->
                         <!-- Projects table -->
                         
                             <!-- <thead class="thead-light">
@@ -376,8 +375,8 @@
                                     </td>
                                 </tr>
                             </tbody> -->
-                        </table>
-                    </div>
+                        <!-- </table>
+                    </div> -->
                 </div> 
             </div>
         </div>
