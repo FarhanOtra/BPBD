@@ -2,7 +2,7 @@
 
 @section('content')
     @include('layouts.headers.cards')
-    
+
     <div class="container-fluid mt--7">
         <!-- <div class="row">
             <div class="col-xl-8 mb-5 mb-xl-0"> -->
@@ -68,9 +68,9 @@
                             <div class="col">
                                 <h3 class="mb-0">Transaksi Masuk Terakhir</h3>
                             </div>
-                            <div class="col text-right">
+                            <!-- <div class="col text-right">
                                 <a href="#!" class="btn btn-sm btn-primary">Semua</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -166,9 +166,9 @@
                             <div class="col">
                                 <h3 class="mb-0">Transaksi Keluar Terakhir</h3>
                             </div>
-                            <div class="col text-right">
+                            <!-- <div class="col text-right">
                                 <a href="#!" class="btn btn-sm btn-primary">Semua</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="table-responsive">
