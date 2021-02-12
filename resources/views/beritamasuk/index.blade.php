@@ -40,6 +40,7 @@
                     <th scope="col" class="sort" data-sort="name">Tanggal</th>
                     <th scope="col" class="sort" data-sort="budget">Nama Donatur</th>
                     <th scope="col" class="sort" data-sort="status">Nama Penerima</th>
+                    <th scope="col" class="sort" data-sort="status">Nama Barang</th>
                     @if(Auth()->user()->role == 1)
                     <th scope="col">Action</th>
                     @endif
@@ -60,9 +61,15 @@
                     <td>
                       <span class="name mb-0 text-sm">{{$b->penerima->nama}}</span>
                     </td>
+                    <td>
+                      @foreach($b->detail_masuk as $d)
+                        <span class="name mb-0 text-sm">{{$loop->iteration}}. {{$d->barang->nama_barang}} <br></span>
+                      @endforeach
+                    </td>
                     @if(Auth()->user()->role == 1)
                     <td class="text-left">
                         <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.show',[$b->id])}}"><i class="fa fa-search" aria-hidden="true"></i></a>
+                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.print',[$b->id])}}"><i class="fas fa-print"></i></a>
                         <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.destroy',[$b->id])}}"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
                     </td>
                     @endif

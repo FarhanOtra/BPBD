@@ -7,6 +7,7 @@ use App\Berita_masuk;
 use App\Donatur;
 use App\Penerima;
 use App\Detail_masuk;
+use PDF;
 
 class BeritaMasukController extends Controller
 {
@@ -91,5 +92,19 @@ class BeritaMasukController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function print($id)
+    {
+        $beritamasuk = Berita_masuk::orderBy('tanggal','asc')
+        ->where('id', $id)
+        ->get();
+        
+        // return view('beritamasuk.print',['beritamasuk' => $beritamasuk]);
+
+        $pdf = PDF::loadview('beritamasuk/print',['beritamasuk'=>$beritamasuk]);
+        
+        return $pdf->stream();
+        
     }
 }
