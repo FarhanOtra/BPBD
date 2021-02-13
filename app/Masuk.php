@@ -6,6 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Masuk extends Model
 {
-    //
-    protected $table = 'masuk';
+    protected $table = 'berita_masuk';
 }

@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::post('/home', 'HomeController@show')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
@@ -34,6 +35,7 @@ Route::get('/barang/{id}','BarangController@destroy')->name('barang.destroy');
 Route::get('/barang/{id}/edit','BarangController@edit')->name('barang.edit');
 Route::put('/barang/{id}/update','BarangController@update')->name('barang.update');
 
+Route::get('/beritamasuk','BeritaMasukController@index')->name('beritamasuk.index');
 Route::get('/beritamasuk/tambah','BeritaMasukController@create')->name('beritamasuk.create');
 Route::post('/beritamasuk/store','BeritaMasukController@store')->name('beritamasuk.store');
 Route::post('/beritamasuk/show/{id}','BeritaMasukController@store')->name('beritamasuk.show');
