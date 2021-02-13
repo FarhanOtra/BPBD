@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        //$exp = Detail_masuk::all();
+        $exp = DB::table('detail_masuk')
+            ->join('barang', 'id_barang', '=', 'detail_masuk.barang_id')
+            ->select('barang.nama_barang', 'detail_masuk.exp')
+            ->limit(5)
+            ->get();
+
+        return view('dashboard',['exp' => $exp]);
     }
+
+   
 }
