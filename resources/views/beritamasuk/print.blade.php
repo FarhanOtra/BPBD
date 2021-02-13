@@ -91,11 +91,6 @@
 <?php 
 
     setlocale(LC_ALL, 'id-ID', 'id_ID');
-    // echo strftime("%A, %d %B %Y",);
-    // Hasil: Selasa, 04 April 2020
-    // echo strftime("%A, %d %B %Y", strtotime($b->tanggal)) . "\n";
-    // Hasil: Senin, 05 Oktober 2020
-
 
     $tanggal = strtotime($b->tanggal);
     $hari = strftime("%A", strtotime($b->tanggal));

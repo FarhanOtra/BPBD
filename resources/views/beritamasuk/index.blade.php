@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script> 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+
     <!-- Header -->
     <div class="header bg-gradient-primary pb-7 pt-5 pt-md-7">
       <div class="container-fluid">
@@ -33,13 +45,13 @@
             </div>
             <!-- Light table -->
             <div class="table-responsive">
-              <table class="table align-items-center table-flush">
+              <table id="table" class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">No.</th>
                     <th scope="col" class="sort" data-sort="name">Tanggal</th>
-                    <th scope="col" class="sort" data-sort="budget">Nama Donatur</th>
-                    <th scope="col" class="sort" data-sort="status">Nama Penerima</th>
+                    <th scope="col" class="sort" data-sort="budget">Donatur</th>
+                    <th scope="col" class="sort" data-sort="status">Penerima</th>
                     <th scope="col" class="sort" data-sort="status">Nama Barang</th>
                     @if(Auth()->user()->role == 1)
                     <th scope="col">Action</th>
@@ -53,17 +65,31 @@
                       <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->tanggal}}</span>
+                    <?php 
+
+                        setlocale(LC_ALL, 'id-ID', 'id_ID');
+
+                        $tanggal = strtotime($b->tanggal);
+                        $hari = strftime("%A", strtotime($b->tanggal));
+                        // $hari = strftime("%D", $tanggal);
+                        // $hari = date('a',$tanggal);
+                        $tgl = date('d',$tanggal);
+                        // $bulan = date('m',$tanggal);
+                        $bulan = strftime("%B", strtotime($b->tanggal));
+                        // $tahun = date('y',$tanggal);
+                        $tahun = strftime("%Y", strtotime($b->tanggal));
+                    ?>
+                      <span class="name mb-0 text-sm">{{$hari}}, {{$tgl}} {{$bulan}} {{$tahun}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->donatur->nama}}</span>
+                      <span class="name mb-0 text-sm">{{$b->donatur->instansi}} - {{$b->donatur->nama}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->penerima->nama}}</span>
+                      <span class="name mb-0 text-sm">{{$b->penerima->instansi}} - {{$b->penerima->nama}}</span>
                     </td>
                     <td>
                       @foreach($b->detail_masuk as $d)
-                        <span class="name mb-0 text-sm">{{$loop->iteration}}. {{$d->barang->nama_barang}} <br></span>
+                        <span class="name mb-0 text-sm">{{$d->barang->nama_barang}}, </span>
                       @endforeach
                     </td>
                     @if(Auth()->user()->role == 1)
@@ -77,6 +103,19 @@
                 @endforeach
                 </tbody>
               </table>
+
+              <script type="text/javascript"> 
+              $.noConflict();
+                jQuery(document).ready(function ( $ ) {
+                    $('#table').DataTable({
+                        dom: 'Bfrtip',
+                        buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                    });
+                });
+              </script>
+
+
+ 
             </div>
             <!-- Card footer -->
             <div class="card-footer py-4">
@@ -107,6 +146,7 @@
           </div>
         </div>
       </div>
+      
       
     @include('layouts.footers.auth')
   </div>

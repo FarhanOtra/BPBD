@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Berita_masuk;
+use App\Barang;
 use App\Donatur;
 use App\Penerima;
 use App\Detail_masuk;
@@ -25,7 +26,8 @@ class BeritaMasukController extends Controller
     public function index()
     {
         $beritamasuk = Berita_masuk::orderBy('tanggal','asc')->get();
-        return view('beritamasuk.index',['beritamasuk' => $beritamasuk]);
+        $barang = Barang::get();
+        return view('beritamasuk.index',compact('beritamasuk','barang'));
     }
 
     /**
