@@ -22,5 +22,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('dashboard');
+        //Masuk::count();
+        $masuk = Masuk::count();
+        return view('index',['masuk' => $masuk]);
     }
 }

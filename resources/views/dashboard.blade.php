@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body"> -->
                         <!-- Chart -->
                         <!-- <div class="chart"> -->
                             <!-- Chart wrapper -->
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body"> -->
                         <!-- Chart -->
                        <!-- <div class="chart">
                             <canvas id="chart-orders" class="chart-canvas"></canvas>

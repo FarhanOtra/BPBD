@@ -1,6 +1,6 @@
-use Illuminate\Support\Facades\DB;
+<!-- use Illuminate\Support\Facades\DB;
 
-$users = DB::table('berita_masuk')->count();
+$users = DB::table('berita_masuk')->count(); -->
 
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
@@ -10,10 +10,24 @@ $users = DB::table('berita_masuk')->count();
                 <div class="col-xl-3 col-lg-6">
                     <div class="card card-stats mb-4 mb-xl-0">
                         <div class="card-body">
+
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Pemasukan</h5>
-                                    <span class="h2 font-weight-bold mb-0" <?php echo $user; ?>></span>
+                                    <!-- <span class="h2 font-weight-bold mb-0"></span> -->
+                                    <div class="table-responsive">
+                                        <table class="table align-items-center table-flush">
+                                            <tbody class="list">
+                                            @foreach($masuk as $m)
+                                            <tr>
+                                                <td class="text-left">
+                                                    <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.index',[$m->id])}}"></a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-danger text-white rounded-circle shadow">

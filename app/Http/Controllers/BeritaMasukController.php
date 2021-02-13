@@ -7,6 +7,7 @@ use App\Berita_masuk;
 use App\Donatur;
 use App\Penerima;
 use App\Detail_masuk;
+use App\Masuk;
 
 class BeritaMasukController extends Controller
 {

@@ -34,7 +34,6 @@ Route::get('/barang/{id}','BarangController@destroy')->name('barang.destroy');
 Route::get('/barang/{id}/edit','BarangController@edit')->name('barang.edit');
 Route::put('/barang/{id}/update','BarangController@update')->name('barang.update');
 
-Route::get('/beritamasuk','BeritaMasukController@index')->name('beritamasuk.index');
 Route::get('/beritamasuk/tambah','BeritaMasukController@create')->name('beritamasuk.create');
 Route::post('/beritamasuk/store','BeritaMasukController@store')->name('beritamasuk.store');
 Route::post('/beritamasuk/show/{id}','BeritaMasukController@store')->name('beritamasuk.show');
