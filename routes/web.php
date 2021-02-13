@@ -51,3 +51,6 @@ Route::post('/beritakeluar/show/{id}','BeritaMasukController@store')->name('beri
 Route::get('/beritakeluar/{id}','BeritaKeluarController@destroy')->name('beritakeluar.destroy');
 Route::get('/beritakeluar/{id}/edit','BeritaKeluarController@edit')->name('beritakeluar.edit');
 Route::put('/beritakeluar/{id}/update','BeritaKeluarController@update')->name('beritakeluar.update');
+
+Route::get('/rekapmasuk','RekapMasukController@index')->name('rekapmasuk.index');
+Route::get('/rekapkeluar','RekapKeluarController@index')->name('rekapkeluar.index');
