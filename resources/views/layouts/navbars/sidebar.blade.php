@@ -58,13 +58,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('beritamasuk.index') }}">
                                 <i class="ni ni-single-copy-04 text-green" style="color: #f4645f;"></i>
-                                    {{ __('Barang Masuk') }}
+                                    {{ __('Berita Acara Masuk') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('beritakeluar.index') }}">
                                 <i class="ni ni-single-copy-04" style="color: #f4645f;"></i>
-                                    {{ __('Barang Keluar') }}
+                                    {{ __('Berita Acara Keluar') }}
                                 </a>
                             </li>
                         </ul>
@@ -75,6 +75,29 @@
                     <a class="nav-link" href="{{ route('barang.index') }}">
                         <i class="fa fa-bars text-blue"></i> {{ __('List Barang') }}
                     </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fa fa-book text-orange"></i>
+                        <span class="nav-link-text">{{ __('Rekap') }}</span>
+                    </a>
+
+                    <div class="collapse show" id="navbar-examples">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('rekapmasuk.index') }}">
+                                <i class="fa fa-file text-success" style="color: #f4645f;"></i>
+                                    {{ __('Rekap Masuk') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('rekapkeluar.index') }}">
+                                <i class="fa fa-file text-warning" style="color: #f4645f;"></i>
+                                    {{ __('Rekap Keluar') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
 
                 <li class="nav-item">

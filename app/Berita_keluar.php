@@ -22,4 +22,5 @@ class Berita_keluar extends Model
     {
         return $this->hasMany(Detail_keluar::Class);
     }
+
 }

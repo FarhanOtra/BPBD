@@ -18,3 +18,5 @@ class Detail_masuk extends Model
         return $this->belongsTo(Barang::Class);
     }
 }
+
+

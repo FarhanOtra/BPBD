@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
@@ -10,8 +13,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script> 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 
     <!-- Header -->
     <div class="header bg-gradient-primary pb-7 pt-5 pt-md-7">
@@ -19,16 +20,16 @@
         <div class="header-body">
           <div class="row align-items-center">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Berita Masuk</h6>
+              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Rekap Masuk</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Berita Acara Masuk</li>
+                  <li class="breadcrumb-item active" aria-current="page">Rekap Berita Masuk</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="{{route('beritamasuk.create')}}" class="btn btn-sm btn-neutral">+ Tambah Berita Masuk</a>
+              <!-- <a href="{{route('barang.create')}}" class="btn btn-sm btn-neutral">+ Tambah Berita Masuk</a> -->
             </div>
           </div>
         </div>
@@ -41,74 +42,64 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-
-              <h3 class="mb-0">Rekap Berita Masuk</h3>
-
+              <h3 class="mb-0">Rekap Barang Keluar</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
               <table id="table" class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-
-                    <th scope="col" class="sort">No.</th>
-                    <th scope="col" class="sort">Tanggal</th>
-                    <th scope="col" class="sort" >Nama Donatur</th>
-                    <th scope="col" class="sort" >Instansi Donatur</th>
-                    <th scope="col" class="sort" >Nama Penerima</th>
-                    <th scope="col" class="sort" >Instansi Penerima</th>
-
+                    <th scope="col" class="sort" data-sort="name">No.</th>
+                    <th scope="col" class="sort" data-sort="name">Tanggal</th>
+                    <th scope="col" class="sort" data-sort="budget">Tujuan Bantuan</th>
+                    <th scope="col" class="sort" data-sort="status">Jenis Bantuan</th>
+                    <th scope="col" class="sort" data-sort="status">Jumlah Bantuan</th>
+                    <th scope="col" class="sort" data-sort="status">Satuan</th>
+                    <th scope="col" class="sort" data-sort="status">Kondisi</th>
                     @if(Auth()->user()->role == 1)
-                    <th scope="col">Action</th>
+                    <!-- <th scope="col">Action</th> -->
                     @endif
                   </tr>
                 </thead>
                 <tbody class="list">
-                @foreach($beritamasuk as $b)
+                @foreach($rekapkeluar as $b)
                   <tr>
                     <td>
                       <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
                     </td>
                     <td>
                     <?php 
-
                         setlocale(LC_ALL, 'id-ID', 'id_ID');
-
-                        $tanggal = strtotime($b->tanggal);
-                        $hari = strftime("%A", strtotime($b->tanggal));
+                        $tanggal = strtotime($b->berita_keluar->tanggal);
+                        $hari = strftime("%A", strtotime($b->berita_keluar->tanggal));
                         // $hari = strftime("%D", $tanggal);
                         // $hari = date('a',$tanggal);
                         $tgl = date('d',$tanggal);
                         // $bulan = date('m',$tanggal);
-                        $bulan = strftime("%B", strtotime($b->tanggal));
+                        $bulan = strftime("%B", strtotime($b->berita_keluar->tanggal));
                         // $tahun = date('y',$tanggal);
-                        $tahun = strftime("%Y", strtotime($b->tanggal));
-                    ?>
+                        $tahun = strftime("%Y", strtotime($b->berita_keluar->tanggal));
+                            // $tanggal = strtotime($b->berita_masuk->tanggal)
+                    // ?>
                       <span class="name mb-0 text-sm">{{$hari}}, {{$tgl}} {{$bulan}} {{$tahun}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->donatur->instansi}} - {{$b->donatur->nama}}</span>
+                      <span class="name mb-0 text-sm">{{$b->berita_keluar->pihak_kedua->instansi}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->penerima->instansi}} - {{$b->penerima->nama}}</span>
+                      <span class="name mb-0 text-sm">{{$b->barang->nama_barang}}</span>
                     </td>
                     <td>
-
-                      <span class="name mb-0 text-sm">{{$b->donatur->instansi}}</span>
+                        <span class="name mb-0 text-sm">{{$b->jumlah}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->penerima->nama}}</span>
-
+                        <span class="name mb-0 text-sm">{{$b->satuan}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->penerima->instansi}}</span>
+                        <span class="name mb-0 text-sm">{{$b->keterangan}}</span>
                     </td>
                     @if(Auth()->user()->role == 1)
-                    <td class="text-left">
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.show',[$b->id])}}" title="show detail"><i class="fa fa-search" aria-hidden="true"></i></a>
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.print',[$b->id])}}" title="Print Berita Acara"><i class="fas fa-print"></i></a>
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.destroy',[$b->id])}}" title="Hapus"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
-                    </td>
+
                     @endif
                   </tr>
                 @endforeach
@@ -157,7 +148,8 @@
           </div>
         </div>
       </div>
-
+      
+      
     @include('layouts.footers.auth')
   </div>
 @endsection
