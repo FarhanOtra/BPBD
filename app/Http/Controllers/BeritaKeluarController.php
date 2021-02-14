@@ -161,20 +161,6 @@ class BeritaKeluarController extends Controller
 
     public function print($id)
     {
-        $beritamasuk = Berita_masuk::orderBy('tanggal','asc')
-        ->where('id', $id)
-        ->get();
-        
-        // return view('beritamasuk.print',['beritamasuk' => $beritamasuk]);
-
-        $pdf = PDF::loadview('beritamasuk/print',['beritamasuk'=>$beritamasuk]);
-        
-        return $pdf->stream();
-        
-    }
-
-    public function print($id)
-    {
         // $beritakeluar = Berita_keluar::orderBy('tanggal','asc')
         // ->where('id', $id)
         // ->get();
