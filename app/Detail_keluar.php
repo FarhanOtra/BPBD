@@ -8,8 +8,13 @@ class Detail_keluar extends Model
 {
     protected $table = 'detail_keluar';
 
-    public function berita_masuk()
+    public function berita_keluar()
     {
-        return $this->hasMany(Berita_masuk::class,'id','berita_masuk_id');
+        return $this->belongsTo(Berita_keluar::class);
+    }
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::Class);
     }
 }
