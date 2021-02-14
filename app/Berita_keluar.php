@@ -20,6 +20,8 @@ class Berita_keluar extends Model
 
     public function detail_keluar()
     {
-        return $this->hasMany(Detail_keluar::class);
+        return $this->hasMany(Detail_keluar::Class);
     }
-} 
+
+}
+

@@ -8,6 +8,9 @@
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
             <img src="{{ asset('argon') }}/img/brand/bpbd.png" class="navbar-brand-img" alt="...">
         </a>
+        <center>
+            <a class="h2 mb-0 text-black text-uppercase d-none d-lg-inline-block">SILOGIS</a>
+        </center>
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
             <!-- Collapse header -->
@@ -45,23 +48,23 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
                         <i class="fa fa-tasks text-orange"></i>
                         <span class="nav-link-text">{{ __('Berita Acara') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-examples">
+                    <div class="collapse" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('beritamasuk.index') }}">
                                 <i class="ni ni-single-copy-04 text-green" style="color: #f4645f;"></i>
-                                    {{ __('Barang Masuk') }}
+                                    {{ __('Berita Acara Masuk') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('beritakeluar.index') }}">
                                 <i class="ni ni-single-copy-04" style="color: #f4645f;"></i>
-                                    {{ __('Barang Keluar') }}
+                                    {{ __('Berita Acara Keluar') }}
                                 </a>
                             </li>
                         </ul>
@@ -73,9 +76,32 @@
                         <i class="fa fa-bars text-blue"></i> {{ __('List Barang') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples2">
+                        <i class="fa fa-book text-orange"></i>
+                        <span class="nav-link-text">{{ __('Rekap') }}</span>
+                    </a>
+
+                    <div class="collapse" id="navbar-examples2">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('rekapmasuk.index') }}">
+                                <i class="fa fa-file text-success" style="color: #f4645f;"></i>
+                                    {{ __('Rekap Masuk') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('rekapkeluar.index') }}">
+                                <i class="fa fa-file text-warning" style="color: #f4645f;"></i>
+                                    {{ __('Rekap Keluar') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('user.index') }}">
                         <i class="ni ni-circle-08 text-yellow"></i> {{ __('Kelola User') }}
                     </a>
                 </li>

@@ -8,7 +8,10 @@ use App\Berita_keluar;
 use App\Pihak_pertama;
 use App\Pihak_kedua;
 use App\Detail_keluar;
+use App\Barang;
 use PDF;
+
+
 
 class BeritaKeluarController extends Controller
 {
@@ -25,7 +28,8 @@ class BeritaKeluarController extends Controller
 
     public function index()
     {
-        //
+        $beritakeluar = Berita_keluar::orderBy('tanggal','asc')->get();
+        return view('beritakeluar.index',['beritakeluar' => $beritakeluar]);
     }
 
     /**
@@ -35,7 +39,8 @@ class BeritaKeluarController extends Controller
      */
     public function create()
     {
-        //
+        $barang = Barang::orderBy('id_barang','asc')->get();
+        return view('beritakeluar.create',['barang' => $barang]);
     }
 
     /**
@@ -46,7 +51,54 @@ class BeritaKeluarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pihakpertama = new Pihak_pertama;
+
+        $pihakpertama->nama = $request->p_nama;
+        $pihakpertama->pangkat = $request->p_pangkat;
+        $pihakpertama->jabatan = $request->p_jabatan;
+        $pihakpertama->instansi = $request->p_instansi;
+
+        $pihakpertama->save();
+
+        $pihakkedua = new Pihak_kedua;
+
+        $pihakkedua->nama = $request->d_nama;
+        $pihakkedua->jabatan = $request->d_jabatan;
+        $pihakkedua->instansi = $request->d_instansi;
+
+        $pihakkedua->save();
+
+        $id_p = Pihak_pertama::latest()->first()->id;
+        $id_d = Pihak_kedua::latest()->first()->id;
+
+        $berita_keluar = new Berita_keluar;
+
+        $berita_keluar->tanggal = $request->tanggal;
+        $berita_keluar->pihak_pertama_id = $id_p;
+        $berita_keluar->pihak_kedua_id = $id_d;
+
+        $berita_keluar->save();
+
+        $id_bm = Berita_keluar::latest()->first()->id;
+
+        $barang_id  = $request->barang_id;
+        $jumlah     = $request->jumlah;
+        $satuan     = $request->satuan;
+
+        for($i=0; $i<count($request->id);$i++)
+        {
+            $datasave = [
+                'berita_keluar_id' => $id_bm,
+                'barang_id' => $barang_id[$i],
+                'jumlah' => $jumlah[$i],
+                'satuan' => $satuan[$i],
+
+            ];
+
+            Detail_keluar::insert($datasave);
+        }
+    
+        return redirect()->route('beritakeluar.index');
     }
 
     /**
@@ -91,7 +143,34 @@ class BeritaKeluarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $idd = Berita_keluar::find($id);
+
+        $pihakpertama = Pihak_pertama::find($idd->pihak_pertama_id);
+        $pihakpertama->delete();
+
+        $pihakkedua = Pihak_kedua::find($idd->pihak_kedua_id);
+        $pihakkedua->delete();
+
+        $detail = Detail_keluar::where('berita_keluar_id',$id)->delete();
+
+        $bkel = Berita_keluar::find($idd->id);
+        $bkel->delete();
+
+        return redirect()->route('beritakeluar.index');
+    }
+
+    public function print($id)
+    {
+        $beritamasuk = Berita_masuk::orderBy('tanggal','asc')
+        ->where('id', $id)
+        ->get();
+        
+        // return view('beritamasuk.print',['beritamasuk' => $beritamasuk]);
+
+        $pdf = PDF::loadview('beritamasuk/print',['beritamasuk'=>$beritamasuk]);
+        
+        return $pdf->stream();
+        
     }
 
     public function print($id)

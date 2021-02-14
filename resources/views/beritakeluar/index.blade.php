@@ -16,24 +16,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.semanticui.min.css">
 
-
-
     <!-- Header -->
     <div class="header bg-gradient-primary pb-7 pt-5 pt-md-7">
       <div class="container-fluid">
         <div class="header-body">
           <div class="row align-items-center">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Berita Masuk</h6>
+              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Berita Keluar</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Berita Acara Masuk</li>
+                  <li class="breadcrumb-item active" aria-current="page">Rekap Berita Keluar</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="{{route('beritamasuk.create')}}" class="btn btn-sm btn-neutral">+ Tambah Berita Masuk</a>
+              <a href="{{route('beritakeluar.create')}}" class="btn btn-sm btn-neutral">+ Tambah Berita Keluar</a>
             </div>
           </div>
         </div>
@@ -46,20 +44,17 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-
-              <h3 class="mb-0">List Berita Masuk</h3>
-
+              <h3 class="mb-0">List Berita Keluar</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive" style="padding: 40px; padding-top: 0px;">
               <table id="table" class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-
                     <th scope="col" class="sort">No.</th>
                     <th scope="col" class="sort">Tanggal</th>
-                    <th scope="col" class="sort" >Nama Donatur</th>
-                    <th scope="col" class="sort" >Nama Penerima</th>
+                    <th scope="col" class="sort" >Pihak Pertama</th>
+                    <th scope="col" class="sort" >Pihak Kedua</th>
 
                     @if(Auth()->user()->role == 1)
                     <th scope="col">Action</th>
@@ -67,7 +62,7 @@
                   </tr>
                 </thead>
                 <tbody class="list">
-                @foreach($beritamasuk as $b)
+                @foreach($beritakeluar as $b)
                   <tr>
                     <td>
                       <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
@@ -90,35 +85,32 @@
                       <span class="name mb-0 text-sm">{{$hari}}, {{$tgl}} {{$bulan}} {{$tahun}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->donatur->instansi}} - {{$b->donatur->nama}}</span>
+                      <span class="name mb-0 text-sm">{{$b->pihak_kedua->nama}} - {{$b->pihak_kedua->instansi}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->penerima->instansi}} - {{$b->penerima->nama}}</span>
+                      <span class="name mb-0 text-sm">{{$b->pihak_pertama->nama}} - {{$b->pihak_pertama->instansi}}</span>
                     </td>
                     @if(Auth()->user()->role == 1)
                     <td class="text-left">
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.print',[$b->id])}}" title="Print Berita Acara"><i class="fas fa-print"></i></a>
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.destroy',[$b->id])}}" title="Hapus"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
+                        <a class="btn btn-sm btn-neutral" href="{{route('beritakeluar.print',[$b->id])}}"><i class="fa fa-print" aria-hidden="true"></i></a>
+                        <a class="btn btn-sm btn-neutral" href="{{route('beritakeluar.destroy',[$b->id])}}"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
                     </td>
                     @endif
                   </tr>
                 @endforeach
                 </tbody>
+                <script type="text/javascript"> 
+                  $.noConflict();
+                    jQuery(document).ready(function ( $ ) {
+                        $('#table').DataTable();
+                    });
+                  </script>
               </table>
-              </div>
-
-              <script type="text/javascript"> 
-              $.noConflict();
-                jQuery(document).ready(function ( $ ) {
-                    $('#table').DataTable();
-                });
-              </script>
             </div>
             <!-- Card footer -->
           </div>
         </div>
       </div>
-
     @include('layouts.footers.auth')
   </div>
 @endsection
