@@ -2,29 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Berita_keluar;
-use App\Pihak_pertama;
-use App\Pihak_kedua;
+use App\Rekap_keluar;
 use App\Detail_keluar;
+use Illuminate\Http\Request;
 
-class BeritaKeluarController extends Controller
+class RekapKeluarController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        $beritakeluar = Berita_keluar::orderBy('tanggal','asc')->get();
-        return view('beritakeluar.index',['beritakeluar' => $beritakeluar]);
+        $rekapkeluar = Detail_keluar::get();
+        return view('rekapkeluar.index',['rekapkeluar' => $rekapkeluar]);
     }
 
     /**
@@ -51,10 +43,10 @@ class BeritaKeluarController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Rekap_keluar  $rekap_keluar
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Rekap_keluar $rekap_keluar)
     {
         //
     }
@@ -62,10 +54,10 @@ class BeritaKeluarController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Rekap_keluar  $rekap_keluar
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Rekap_keluar $rekap_keluar)
     {
         //
     }
@@ -74,10 +66,10 @@ class BeritaKeluarController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Rekap_keluar  $rekap_keluar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Rekap_keluar $rekap_keluar)
     {
         //
     }
@@ -85,10 +77,10 @@ class BeritaKeluarController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Rekap_keluar  $rekap_keluar
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Rekap_keluar $rekap_keluar)
     {
         //
     }
