@@ -17,4 +17,11 @@ class Berita_masuk extends Model
     {
         return $this->hasOne(Donatur::class,'id','donatur_id');
     }
+
+    public function detail_masuk()
+    {
+        return $this->hasMany(Detail_masuk::Class);
+    }
+
+    
 }
