@@ -30,7 +30,7 @@
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <h3 class="col-12 mb-0">{{ __('Tambah Berita Keluar Peminjaman') }}</h3>
+                            <h3 class="col-12 mb-0">{{ __('Tambah Berita Keluar Bantuan') }}</h3>
                         </div>
                     </div>
                     <div class="card-body">
@@ -46,7 +46,7 @@
                             @endif
 
                             <div class="pl-lg-4">
-                                @include('beritakeluar._form')
+                                @include('beritakeluar._form2')
                                 <div class="text-left">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Tambah') }}</button>
                                 </div>

@@ -7,7 +7,7 @@
         <div class="header-body">
           <div class="row align-items-center">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Berita Keluar</h6>
+              <!-- <h6 class="h2 text-white d-inline-block mt-0 mb-0">Berita Keluar</h6> -->
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
@@ -16,7 +16,8 @@
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="{{route('beritakeluar.create')}}" class="btn btn-sm btn-neutral">+ Tambah Berita Keluar</a>
+              <a href="{{route('beritakeluar.create2')}}" class="btn btn-sm btn-neutral">Tambah Berita Keluar Bantuan</a>
+              <a href="{{route('beritakeluar.create')}}" class="btn btn-sm btn-neutral">Tambah Berita Keluar Peminjaman</a>
             </div>
           </div>
         </div>

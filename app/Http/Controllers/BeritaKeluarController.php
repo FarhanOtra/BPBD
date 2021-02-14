@@ -37,7 +37,15 @@ class BeritaKeluarController extends Controller
     public function create()
     {
         $barang = Barang::orderBy('id_barang','asc')->get();
+        $j_barang = Jenis_Barang::orderBy('id','asc')->get();
         return view('beritakeluar.create',['barang' => $barang]);
+    }
+
+    public function create2()
+    {
+        $barang = Barang::orderBy('id_barang','asc')->get();
+        $j_barang = Jenis_Barang::orderBy('id','asc')->get();
+        return view('beritakeluar.create2',['barang' => $barang]);
     }
 
     /**

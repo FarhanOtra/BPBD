@@ -45,6 +45,7 @@ Route::get('beritamasuk/{id}/print', 'BeritaMasukController@print')->name('berit
 
 Route::get('/beritakeluar','BeritaKeluarController@index')->name('beritakeluar.index');
 Route::get('/beritakeluar/tambah','BeritaKeluarController@create')->name('beritakeluar.create');
+Route::get('/beritakeluar/tambah2','BeritaKeluarController@create2')->name('beritakeluar.create2');
 Route::post('/beritakeluar/store','BeritaKeluarController@store')->name('beritakeluar.store');
 Route::post('/beritakeluar/show/{id}','BeritaMasukController@store')->name('beritakeluar.show');
 Route::get('/beritakeluar/{id}','BeritaKeluarController@destroy')->name('beritakeluar.destroy');
