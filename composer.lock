@@ -5186,6 +5186,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/facade/ignition/zipball/e91d67353054bf827c64687fcac5ea44e4dcec54",
+
                 "shasum": ""
             },
             "require": {
