@@ -12,4 +12,14 @@ class Detail_keluar extends Model
     {
         return $this->hasMany(Berita_masuk::class,'id','berita_masuk_id');
     }
+
+    public function berita_keluar()
+    {
+        return $this->belongsTo(Berita_keluar::class);
+    }
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
+    }
 }

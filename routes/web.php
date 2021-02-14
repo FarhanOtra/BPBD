@@ -49,3 +49,5 @@ Route::post('/beritakeluar/show/{id}','BeritaMasukController@store')->name('beri
 Route::get('/beritakeluar/{id}','BeritaKeluarController@destroy')->name('beritakeluar.destroy');
 Route::get('/beritakeluar/{id}/edit','BeritaKeluarController@edit')->name('beritakeluar.edit');
 Route::put('/beritakeluar/{id}/update','BeritaKeluarController@update')->name('beritakeluar.update');
+Route::get('/beritakeluar/{id}/print', 'BeritaKeluarController@print')->name('beritakeluar.print');
+Route::get('/beritakeluar/{id}/print2', 'BeritaKeluarController@print2')->name('beritakeluar.print2');
