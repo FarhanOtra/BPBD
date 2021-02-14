@@ -59,7 +59,6 @@ Route::get('/users/{id}/edit','UserController@edit')->name('user.edit');
 Route::put('/users/{id}/update','UserController@update')->name('user.update');  
 Route::put('/users/{id}/updatepass','UserController@updatepass')->name('user.updatepass'); 
 Route::get('/users/{id}','UserController@destroy')->name('user.destroy');  
-Route::get('/users/{id}','UserController@destroy')->name('user.destroy');  
 
 Route::get('/rekapmasuk','RekapMasukController@index')->name('rekapmasuk.index');
 Route::get('/rekapkeluar','RekapKeluarController@index')->name('rekapkeluar.index');
