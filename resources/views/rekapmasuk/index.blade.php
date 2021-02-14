@@ -45,6 +45,7 @@
               <h3 class="mb-0">Rekap Barang Masuk</h3>
             </div>
             <!-- Light table -->
+            <div style="padding:20px">
             <div class="table-responsive">
               <table id="table" class="table align-items-center table-flush">
                 <thead class="thead-light">
@@ -56,7 +57,6 @@
                     <th scope="col" class="sort" data-sort="status">Jumlah Masuk</th>
                     <th scope="col" class="sort" data-sort="status">Satuan</th>
                     <th scope="col" class="sort" data-sort="status">Exp</th>
-                    <th scope="col" class="sort" data-sort="status"> Stock</th>
                     @if(Auth()->user()->role == 1)
                     <!-- <th scope="col">Action</th> -->
                     @endif
@@ -112,9 +112,6 @@
                     // ?>
                         <span class="name mb-0 text-sm">{{$tgl}} {{$bulan}} {{$tahun}}</span>
                     </td>
-                    <td>
-                        <span class="name mb-0 text-sm">{{$b->stock}}</span>
-                    </td>
                     @if(Auth()->user()->role == 1)
 
                     @endif
@@ -122,6 +119,8 @@
                 @endforeach
                 </tbody>
               </table>
+              </div>
+              </div>
 
               <script type="text/javascript"> 
               $.noConflict();
@@ -133,34 +132,6 @@
                 });
               </script>
 
-
- 
-            </div>
-            <!-- Card footer -->
-            <div class="card-footer py-4">
-              <nav aria-label="...">
-                <ul class="pagination justify-content-end mb-0">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">
-                      <i class="fas fa-angle-left"></i>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      <i class="fas fa-angle-right"></i>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
             </div>
           </div>
         </div>

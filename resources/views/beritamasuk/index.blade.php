@@ -1,17 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/dataTables.semanticui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script> 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.semanticui.min.css">
+
+
 
     <!-- Header -->
     <div class="header bg-gradient-primary pb-7 pt-5 pt-md-7">
@@ -42,11 +47,11 @@
             <!-- Card header -->
             <div class="card-header border-0">
 
-              <h3 class="mb-0">Rekap Berita Masuk</h3>
+              <h3 class="mb-0">List Berita Masuk</h3>
 
             </div>
             <!-- Light table -->
-            <div class="table-responsive">
+            <div class="table-responsive" style="padding: 40px; padding-top: 0px;">
               <table id="table" class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
@@ -54,9 +59,7 @@
                     <th scope="col" class="sort">No.</th>
                     <th scope="col" class="sort">Tanggal</th>
                     <th scope="col" class="sort" >Nama Donatur</th>
-                    <th scope="col" class="sort" >Instansi Donatur</th>
                     <th scope="col" class="sort" >Nama Penerima</th>
-                    <th scope="col" class="sort" >Instansi Penerima</th>
 
                     @if(Auth()->user()->role == 1)
                     <th scope="col">Action</th>
@@ -92,20 +95,8 @@
                     <td>
                       <span class="name mb-0 text-sm">{{$b->penerima->instansi}} - {{$b->penerima->nama}}</span>
                     </td>
-                    <td>
-
-                      <span class="name mb-0 text-sm">{{$b->donatur->instansi}}</span>
-                    </td>
-                    <td>
-                      <span class="name mb-0 text-sm">{{$b->penerima->nama}}</span>
-
-                    </td>
-                    <td>
-                      <span class="name mb-0 text-sm">{{$b->penerima->instansi}}</span>
-                    </td>
                     @if(Auth()->user()->role == 1)
                     <td class="text-left">
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.show',[$b->id])}}" title="show detail"><i class="fa fa-search" aria-hidden="true"></i></a>
                         <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.print',[$b->id])}}" title="Print Berita Acara"><i class="fas fa-print"></i></a>
                         <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.destroy',[$b->id])}}" title="Hapus"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
                     </td>
@@ -114,46 +105,16 @@
                 @endforeach
                 </tbody>
               </table>
+              </div>
 
               <script type="text/javascript"> 
               $.noConflict();
                 jQuery(document).ready(function ( $ ) {
-                    $('#table').DataTable({
-                        dom: 'Bfrtip',
-                        buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-                    });
+                    $('#table').DataTable();
                 });
               </script>
-
-
- 
             </div>
             <!-- Card footer -->
-            <div class="card-footer py-4">
-              <nav aria-label="...">
-                <ul class="pagination justify-content-end mb-0">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">
-                      <i class="fas fa-angle-left"></i>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      <i class="fas fa-angle-right"></i>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
           </div>
         </div>
       </div>

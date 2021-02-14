@@ -49,23 +49,22 @@
                                 <h2 class="mb-0">Peringatan Barang Expired</h2>
                                 <hr>
 
+                            @foreach ($exp as $e)
                             
+                            @php
+                                $tgl = date('Y-m-d');
+                                $tgl2 = date('Y-m-d', strtotime('-1 month', strtotime( $e->exp )))
+                            @endphp
+                            
+                                @if($tgl == $tgl2)
+                                <div class="alert alert-danger" role="alert">
+                                    <b>{{$e->nama_barang}}</b> akan segera expired pada {{date('l, d F Y', strtotime($e->exp))}}
+                                </div>
+                                @endif
+                            
+                            @endforeach
                             </div>
                             
-
-                            <div class="alert alert-danger" role="alert">
-                            <b>Barang</b> akan segera expired pada #exp
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                            <b>Barang</b> akan segera expired pada #exp
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                            <b>Barang</b> akan segera expired pada #exp
-                            </div>
-
-                                <!-- <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                                <h2 class="mb-0">Total orders</h2> -->
-                            </div>
                         </div>
                     </div>
                     <!-- <div class="card-body"> -->
@@ -78,7 +77,7 @@
                 </div>
 
                 </div>
-                <br> -->
+                <br>
 
                 <div class="card shadow">
                     <div class="card-header border-0">

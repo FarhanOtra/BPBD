@@ -76,6 +76,12 @@
                             <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('id_barang') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
                         </td>
                         <td>
+                           <input type="text" name="satuan[]" id="input-satuan" class="form-control form-control-alternative{{ $errors->has('satuan[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Satuan') }}" required autofocus>
+                        </td>
+                        <td>
+                            <input type="text" name="keterangan[]" id="input-keterangan" class="form-control form-control-alternative{{ $errors->has('keterangan[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Keterangan') }}" autofocus>
+                        </td>
+                        <td>
                             <button type="button" class="btn btn-danger remove-tr">-</button>
                         </td>
                     </tr>`)

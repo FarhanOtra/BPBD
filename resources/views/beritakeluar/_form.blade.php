@@ -37,6 +37,15 @@
                 </span>
             @endif
         </div>
+        <div class="form-group{{ $errors->has('p_pangkat') ? ' has-danger' : '' }}">
+            <input type="text" name="p_pangkat" id="input-p_pangkat" class="form-control form-control-sm form-control-alternative{{ $errors->has('p_pangkat') ? ' is-invalid' : '' }}" placeholder="{{ __('Pangkat') }}" required autofocus>
+
+            @if ($errors->has('p_pangkat'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('p_pangkat') }}</strong>
+                </span>
+            @endif
+        </div>
         <div class="form-group{{ $errors->has('p_jabatan') ? ' has-danger' : '' }}">
             <input type="text" name="p_jabatan" id="input-p_jabatan" class="form-control form-control-sm form-control-alternative{{ $errors->has('p_jabatan') ? ' is-invalid' : '' }}" placeholder="{{ __('Jabatan') }}" required autofocus>
 
@@ -114,6 +123,7 @@
                   <tr>
                     <th scope="col" class="sort" data-sort="name">Nama Barang</th>
                     <th scope="col" class="sort" data-sort="status">Jumlah</th>
+                    <th scope="col" class="sort" data-sort="status">keterangan</th>
                     <th scope="col" class="sort" data-sort="completion"></th>
                   </tr>
                 </thead>
@@ -132,6 +142,14 @@
                                         
                                         <td>
                                             <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
+                                        </td>
+
+                                        <td>
+                                            <input type="text" name="satuan[]" id="input-satuan" class="form-control form-control-alternative{{ $errors->has('satuan[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Satuan') }}" required autofocus>
+                                        </td>
+
+                                        <td>
+                                            <input type="text" name="keterangan[]" id="input-keterangan" class="form-control form-control-alternative{{ $errors->has('keterangan[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Keterangan') }}" autofocus>
                                         </td>
 
                                         <td>

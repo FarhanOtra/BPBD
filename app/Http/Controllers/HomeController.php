@@ -31,14 +31,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-
+        $exp = Detail_masuk::all(); 
         $count = Berita_masuk::count('id');
         $count1 = Berita_keluar::count('id');
         $max = Barang::max('nama_barang');
         $min = Barang::min('nama_barang');
         $beritamasuk = Berita_masuk::orderBy('tanggal','desc')->limit(5)->get(); 
         $beritakeluar = Berita_keluar::orderBy('tanggal','desc')->limit(5)->get();
-        return view('dashboard',compact('count','count1','max','min','beritamasuk','beritakeluar'));
+        return view('dashboard',compact('count','count1','max','min','beritamasuk','beritakeluar','exp'));
     }
 
     public function show()

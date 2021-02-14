@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Document</title>
     <style>
@@ -105,32 +104,32 @@
 <h4 style="text-indent:30px;">Pada hari ini <b>{{$hari}}</b> Tanggal <b>{{$tgl}}</b> Bulan <b>{{$bulan}}</b> Tahun <b>Dua Ribu Dua Puluh Satu</b> yang bertanda tangan dibawah ini :</h4>
     <table>
         <tr>
-            <td><h4>Nama            : </h4></td>
-            <td><h4> {{ $b->donatur->nama }}</h4></td>
+            <td><h4>Nama</h4></td>
+            <td><h4>: {{ $b->donatur->nama }}</h4></td>
         </tr>
         <tr>
-            <td><h4>Jabatan         :  </h4></td>
-            <td><h4>{{$b->donatur->jabatan}}</h4></td>
+            <td><h4>Jabatan</h4></td>
+            <td><h4>: {{$b->donatur->jabatan}}</h4></td>
         </tr>
         <tr>
-            <td><h4>Instansi        :  </h4></td>
-            <td><h4>{{$b->donatur->instansi}}</h4></td>
+            <td><h4>Instansi</h4></td>
+            <td><h4>: {{$b->donatur->instansi}}</h4></td>
         </tr>
     </table>
         <h4 style="padding-bottom:6px">Selanjutnya disebut <b>PIHAK PERTAMA</b></h4>
         
     <table>
         <tr>
-            <td><h4> Nama                : </h4></td>
-            <td><h4>{{$b->penerima->nama}}</h4></td>
+            <td><h4>Nama</h4></td>
+            <td><h4>: {{$b->penerima->nama}}</h4></td>
         </tr>
         <tr>
-            <td><h4>Jabatan         :  </h4></td>
-            <td><h4>{{$b->penerima->jabatan}}</h4></td>
+            <td><h4>Jabatan</h4></td>
+            <td><h4>: {{$b->penerima->jabatan}}</h4></td>
         </tr>
         <tr>
-            <td><h4>Instansi         :  </h4></td>
-            <td><h4>{{$b->penerima->instansi}}</h4></td>
+            <td><h4>Instansi</h4></td>
+            <td><h4>: {{$b->penerima->instansi}}</h4></td>
         </tr>
     </table>
         <h4>Selanjutnya disebut <b>PIHAK KEDUA</b></h4>
@@ -157,7 +156,7 @@
                 <td class="td-barang"><h4>{{$b->donatur->instansi}}</h4></td>
                 <td class="td-barang"><h4>{{$d->jumlah}}</h4></td>
                 <td class="td-barang"><h4>{{$d->harga}}</h4></td>
-                <td class="td-barang" style="text-align:right"><h4>Rp {{$total}}.00</h4></td>                
+                <td class="td-barang"><h4>Rp {{$total}}.00</h4></td>                
             </tr>
             @endforeach
         </table>

@@ -51,6 +51,7 @@ class BeritaKeluarController extends Controller
         $pihakpertama = new Pihak_pertama;
 
         $pihakpertama->nama = $request->p_nama;
+        $pihakpertama->pangkat = $request->p_pangkat;
         $pihakpertama->jabatan = $request->p_jabatan;
         $pihakpertama->instansi = $request->p_instansi;
 
@@ -153,5 +154,19 @@ class BeritaKeluarController extends Controller
         $bkel->delete();
 
         return redirect()->route('beritakeluar.index');
+    }
+
+    public function print($id)
+    {
+        $beritamasuk = Berita_masuk::orderBy('tanggal','asc')
+        ->where('id', $id)
+        ->get();
+        
+        // return view('beritamasuk.print',['beritamasuk' => $beritamasuk]);
+
+        $pdf = PDF::loadview('beritamasuk/print',['beritamasuk'=>$beritamasuk]);
+        
+        return $pdf->stream();
+        
     }
 }
