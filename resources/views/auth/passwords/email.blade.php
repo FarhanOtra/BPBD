@@ -18,7 +18,7 @@
                             </div>
                         @endif
 
-                        <form role="form" method="POST" action="{{ route('password.email') }}">
+                        {{-- <form role="form" method="POST" action="{{ route('password.email') }}">
                             @csrf
 
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
@@ -33,11 +33,11 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+                            </div> --}}
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary my-4">{{ __('Send Password Reset Link') }}</button>
+                                <b type="text" class="">Hubungi Admin <br>BPBD Provinsi Sumatera Barat</b>
                             </div>
-                        </form>
+                        {{-- </form> --}}
                     </div>
                 </div>
             </div>
