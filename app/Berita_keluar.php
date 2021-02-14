@@ -17,4 +17,9 @@ class Berita_keluar extends Model
     {
         return $this->hasOne(Pihak_kedua::class,'id','pihak_kedua_id');
     }
+
+    public function detail_keluar()
+    {
+        return $this->hasMany(Detail_keluar::Class);
+    }
 }
