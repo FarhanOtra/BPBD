@@ -89,7 +89,9 @@ class AllTable extends Migration
             $table->unsignedBigInteger('berita_masuk_id')->nullable();
             $table->unsignedBigInteger('barang_id')->nullable();
             $table->date('exp');
+            $table->float('harga');
             $table->integer('jumlah');
+            $table->string('satuan');
             $table->integer('stock');
             $table->timestamps();
 

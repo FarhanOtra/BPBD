@@ -7,7 +7,7 @@
             <div class="row mt-5">
             <div class="col-xl-8 mb-5 mb-xl-0">
             
-                <!-- <div class="card shadow">
+                <div class="card shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
@@ -49,20 +49,7 @@
                                 <h2 class="mb-0">Peringatan Barang Expired</h2>
                                 <hr>
 
-                            @foreach ($exp as $e)
                             
-                            @php
-                                $tgl = date('Y-m-d');
-                                $tgl2 = date('Y-m-d', strtotime('-1 month', strtotime( $e->exp )))
-                            @endphp
-                            
-                                @if($tgl == $tgl2)
-                                <div class="alert alert-danger" role="alert">
-                                    <b>{{$e->nama_barang}}</b> akan segera expired pada {{date('l, d F Y', strtotime($e->exp))}}
-                                </div>
-                                @endif
-                            
-                            @endforeach
                             </div>
                             
 
