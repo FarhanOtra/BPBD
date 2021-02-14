@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -53,6 +54,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        // $decrypted = Crypt::decryptString($pass);
         return view('users.edit',['user' => $user]);
     }
 
@@ -64,8 +66,18 @@ class UserController extends Controller
             'nohp' => $request->nohp,
             'email' => $request->email,
             'role' => $request->role,
-            'instansi' => $request->instansi
-            // 'password' => Hash::make($request->password)
+            'instansi' => $request->instansi,
+            'password' => Hash::make($request->password)
+        ]);
+        //$user->save();
+
+        return redirect()->route('user.index');
+    }
+
+    public function updatepass(Request $request, $id)
+    {
+        User::where('id',$id)->update([
+            'password' => Hash::make($request->password)
         ]);
         //$user->save();
 

@@ -55,4 +55,5 @@ Route::get('/users/tambah','UserController@create')->name('user.create');
 Route::post('/users/store','UserController@store')->name('user.store');
 Route::get('/users/{id}/edit','UserController@edit')->name('user.edit');
 Route::put('/users/{id}/update','UserController@update')->name('user.update');  
+Route::put('/users/{id}/updatepass','UserController@updatepass')->name('user.updatepass'); 
 Route::get('/users/{id}','UserController@destroy')->name('user.destroy');  
