@@ -54,6 +54,26 @@
                                 </div>
                             </div>
                         </form>
+                        <br>
+                        <form method="post" action="{{ route('user.updatepass',[$user->id]) }}" autocomplete="off">
+                            @csrf
+                            @method('put')
+                            @if (session('status'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('status') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+
+                            <div class="pl-lg-4">
+                                @include('users._formeditpass')
+                                <div class="text-left">
+                                    <button type="submit" class="btn btn-success mt-4">{{ __('Change Password') }}</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
