@@ -17,4 +17,14 @@ class Detail_keluar extends Model
     {
         return $this->belongsTo(Barang::Class);
     }
+
+    public function berita_keluar()
+    {
+        return $this->belongsTo(Berita_keluar::class);
+    }
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
+    }
 }

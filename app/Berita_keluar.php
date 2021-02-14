@@ -24,3 +24,4 @@ class Berita_keluar extends Model
     }
 
 }
+
