@@ -23,7 +23,8 @@ class BeritaKeluarController extends Controller
 
     public function index()
     {
-        //
+        $beritakeluar = Berita_keluar::orderBy('tanggal','asc')->get();
+        return view('beritakeluar.index',['beritakeluar' => $beritakeluar]);
     }
 
     /**

@@ -8,6 +8,9 @@
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
             <img src="{{ asset('argon') }}/img/brand/bpbd.png" class="navbar-brand-img" alt="...">
         </a>
+        <center>
+            <a class="h2 mb-0 text-black text-uppercase d-none d-lg-inline-block">SILOGIS</a>
+        </center>
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
             <!-- Collapse header -->

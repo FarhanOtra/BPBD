@@ -23,5 +23,4 @@ class Berita_masuk extends Model
         return $this->hasMany(Detail_masuk::Class);
     }
 
-    
 }

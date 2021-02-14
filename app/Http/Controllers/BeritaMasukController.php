@@ -8,7 +8,10 @@ use App\Barang;
 use App\Donatur;
 use App\Penerima;
 use App\Detail_masuk;
+use App\Masuk;
+
 use PDF;
+
 
 class BeritaMasukController extends Controller
 {

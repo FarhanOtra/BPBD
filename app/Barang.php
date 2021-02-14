@@ -17,4 +17,10 @@ class Barang extends Model
     {
         return $this->hasMany(Detail_masuk::Class);
     }
+
+    public function detail_keluar()
+    {
+        return $this->hasMany(Detail_keluar::Class);
+    }
+
 }

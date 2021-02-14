@@ -17,6 +17,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::post('/home', 'HomeController@show')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
