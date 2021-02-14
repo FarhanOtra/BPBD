@@ -101,7 +101,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('user.index') }}">
                         <i class="ni ni-circle-08 text-yellow"></i> {{ __('Kelola User') }}
                     </a>
                 </li>

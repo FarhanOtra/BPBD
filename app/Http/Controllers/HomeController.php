@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Berita_masuk;
@@ -30,6 +31,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $count = Berita_masuk::count('id');
         $count1 = Berita_keluar::count('id');
         $max = Barang::max('nama_barang');
@@ -41,6 +43,8 @@ class HomeController extends Controller
 
     public function show()
     {
-        //
+
     }
+
+   
 }
