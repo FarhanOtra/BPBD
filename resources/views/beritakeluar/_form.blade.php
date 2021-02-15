@@ -19,6 +19,26 @@
 </div>                    
 </div>
 <div>
+<div class="card bg-secondary shadow mb-4">
+                    <div class="card-header bg-white border-0">
+                        <div class="row align-items-center">
+                            <h3 class="col-12 mb-0">{{ __('Kegiatan') }}</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                    <div class="form-group{{ $errors->has('kegiatan') ? ' has-danger' : '' }}">
+        <input type="text" name="kegiatan" id="input-kegiatan" class="form-control form-control-alternative{{ $errors->has('kegiatan') ? ' is-invalid' : '' }}" placeholder="{{ __('Kegiatan') }}" required autofocus>
+
+        @if ($errors->has('kegiatan'))
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('kegiatan') }}</strong>
+            </span>
+        @endif
+    </div>
+                    </div>
+</div>                    
+</div>
+<div>
     <div class="row">
         <div class="col-6">
         <div class="card bg-secondary shadow">
@@ -34,15 +54,6 @@
             @if ($errors->has('p_nama'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('p_nama') }}</strong>
-                </span>
-            @endif
-        </div>
-        <div class="form-group{{ $errors->has('p_pangkat') ? ' has-danger' : '' }}">
-            <input type="text" name="p_pangkat" id="input-p_pangkat" class="form-control form-control-sm form-control-alternative{{ $errors->has('p_pangkat') ? ' is-invalid' : '' }}" placeholder="{{ __('Pangkat') }}" required autofocus>
-
-            @if ($errors->has('p_pangkat'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('p_pangkat') }}</strong>
                 </span>
             @endif
         </div>
@@ -121,9 +132,8 @@
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col" class="sort" data-sort="name">Nama Barang</th>
+                    <th scope="col" class="sort" data-sort="name" style="width:60%">Nama Barang</th>
                     <th scope="col" class="sort" data-sort="status">Jumlah</th>
-                    <th scope="col" class="sort" data-sort="status">keterangan</th>
                     <th scope="col" class="sort" data-sort="completion"></th>
                   </tr>
                 </thead>
@@ -132,7 +142,7 @@
                                 <table class="container-fluid" id="tambahSelect">
                                     <tr>
                                         <input name="id[]" type="hidden" value="1">
-                                        <td>
+                                        <td style="width:60%">
                                             <select class="form-control" name="barang_id[]">
                                             @foreach ($barang as $b)
                                                 <option value="{{ $b->id }}">{{ $b->nama_barang}}</option>
@@ -142,14 +152,6 @@
                                         
                                         <td>
                                             <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
-                                        </td>
-
-                                        <td>
-                                            <input type="text" name="satuan[]" id="input-satuan" class="form-control form-control-alternative{{ $errors->has('satuan[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Satuan') }}" required autofocus>
-                                        </td>
-
-                                        <td>
-                                            <input type="text" name="keterangan[]" id="input-keterangan" class="form-control form-control-alternative{{ $errors->has('keterangan[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Keterangan') }}" autofocus>
                                         </td>
 
                                         <td>

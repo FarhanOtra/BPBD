@@ -76,16 +76,10 @@
                             <input type="date" name="exp[]" id="input-exp" class="form-control form-control-alternative{{ $errors->has('id_barang') ? ' is-invalid' : '' }}" placeholder="{{ __('Expired') }}" required autofocus>
                         </td>
                         <td>
-                            <input type="text" name="harga[]" id="input-harga" class="form-control form-control-alternative{{ $errors->has('harga[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Harga') }}" required autofocus>
-                        </td>
-                        <td>
                             <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
                         </td>
                         <td>
-                            <input type="text" name="satuan[]" id="input-satuan" class="form-control form-control-alternative{{ $errors->has('satuan[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Satuan') }}" required autofocus>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-danger remove-tr btn-sm">-</button>
+                            <button type="button" class="btn btn-danger remove-tr">-</button>
                         </td>
                     </tr>`)
             })

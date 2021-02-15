@@ -112,38 +112,30 @@
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col" class="sort" >Nama Barang</th>
-                    <th scope="col" class="sort" >Expired</th>
-                    <th scope="col" class="sort" >Harga</th>
-                    <th scope="col" class="sort" >Jumlah</th>
-                    <th scope="col" class="sort" >Satuan</th>
+                    <th scope="col" class="sort" style="width: 40%">Nama Barang</th>
+                    <th scope="col" class="sort" style="width: 30%">Expired</th>
+                    <th scope="col" class="sort" style="width: 30%">Jumlah</th>
                     <th scope="col" class="sort" ></th>
                   </tr>
                 </thead>
-                <tbody class="list" id="tambahSelect">
+                <tbody class="list" id="tampilSelect">
+                        <table class="container-fluid" id="tambahSelect">
                                     <tr>
                                         <input name="id[]" type="hidden" value="1">
-                                        <td style="width: 25%">
+                                        <td style="width: 40%">
                                             <select class="form-control" name="barang_id[]">
                                             @foreach ($barang as $b)
                                                 <option value="{{ $b->id }}">{{ $b->nama_barang}}</option>
                                             @endforeach
                                             </select>
                                         </td>
-                                        <td style="width: 10%">
+                                        <td style="width: 30%">
                                             <input type="date" name="exp[]" id="input-exp" class="form-control form-control-alternative{{ $errors->has('exp[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Expired') }}" required autofocus>
-                                        </td>
-                                        <td style="width: 20%">
-                                            <input type="text" name="harga[]" id="input-harga" class="form-control form-control-alternative{{ $errors->has('harga[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Harga') }}" required autofocus>
-                                        </td>
-                                        <td>
+                                        <td style="width: 30%">
                                             <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
                                         </td>
-                                        <td style="width: 20%">
-                                            <input type="text" name="satuan[]" id="input-satuan" class="form-control form-control-alternative{{ $errors->has('satuan[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Satuan') }}" required autofocus>
-                                        </td>
-                                        <td style="width: 5%">
-                                            <button type="button" class="btn btn-success btn-sm" id="tombolTambahSelect">+</button>
+                                        <td>
+                                            <button type="button" class="btn btn-success" id="tombolTambahSelect">+</button>
                                         </td>
                                     </tr>
                                 </table>

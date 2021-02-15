@@ -84,10 +84,7 @@ class BeritaMasukController extends Controller
 
         $barang_id  = $request->barang_id;
         $exp        = $request->exp;
-        $harga     = $request->harga;
         $jumlah     = $request->jumlah;
-        $satuan     = $request->satuan;
-        $stock      = $request->jumlah;
 
         for($i=0; $i<count($request->id);$i++)
         {
@@ -95,12 +92,17 @@ class BeritaMasukController extends Controller
                 'berita_masuk_id' => $id_bm,
                 'barang_id' => $barang_id[$i],
                 'exp' => $exp[$i],
-                'harga' => $harga[$i],
                 'jumlah' => $jumlah[$i],
-                'satuan' => $satuan[$i],
-                'stock' => $stock[$i],
             ];
 
+            $id_barang = $request->barang_id[$i] ;
+            $cekstock = Barang::where('id',$id_barang)->first();
+            
+            $stock = $cekstock->stock + $request->jumlah[$i];
+
+            Barang::where('id',$barang_id[$i])->UPDATE(
+                ['stock' => $stock]
+            );
             Detail_masuk::insert($datasave);
         }
     

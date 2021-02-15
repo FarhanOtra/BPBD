@@ -50,7 +50,9 @@ class BarangController extends Controller
         $barang->id_barang = $request->id_barang;
         $barang->nama_barang = $request->nama_barang;
         $barang->jenisbarang_id = $request->jenis_barang;
-        $barang->deskripsi = $request->deskripsi;
+        $barang->harga = $request->harga_barang;
+        $barang->satuan = $request->satuan;
+        $barang->stock = 0;
 
         $barang->save();
 
@@ -94,7 +96,8 @@ class BarangController extends Controller
             'id_barang' => $request->id_barang,
             'nama_barang' => $request->nama_barang,
             'jenisbarang_id' => $request->jenis_barang,
-            'deskripsi' => $request->deskripsi
+            'harga' => $request->harga_barang,
+            'satuan' => $request->satuan
         ]);
 
         return redirect()->route('barang.index');

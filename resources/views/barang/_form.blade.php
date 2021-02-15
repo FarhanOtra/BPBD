@@ -34,13 +34,28 @@
          @endif
     </div>
 
-    <div class="form-group{{ $errors->has('deskripsi') ? ' has-danger' : '' }}">
-        <label class="form-control-label" for="input-deskripsi">{{ __('Deskripsi') }}</label>
-        <textarea type="text" name="deskripsi" id="input-deskripsi" class="form-control form-control-alternative{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" placeholder="{{ __('Deskripsi') }}" rows="3"></textarea>
-
-        @if ($errors->has('deskripsi'))
+    <div class="form-group{{ $errors->has('harga_barang') ? ' has-danger' : '' }}">
+        <label class="form-control-label" for="input-harga_barang">{{ __('Harga Barang') }}</label>
+        <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Rp</span>
+        </div>
+        <input type="text" name="harga_barang" id="input-harga_barang" class="form-control {{ $errors->has('harga_barang') ? ' is-invalid' : '' }}" placeholder="{{ __('Harga Barang') }}"  required>
+        </div>
+        @if ($errors->has('harga_barang'))
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('deskripsi') }}</strong>
+                <strong>{{ $errors->first('harga_barang') }}</strong>
+            </span>
+         @endif
+    </div>
+
+    <div class="form-group{{ $errors->has('satuan') ? ' has-danger' : '' }}">
+        <label class="form-control-label" for="input-satuan">{{ __('Satuan') }}</label>
+        <input type="text" name="satuan" id="input-satuan" class="form-control form-control-alternative{{ $errors->has('satuan') ? ' is-invalid' : '' }}" placeholder="{{ __('Satuan') }}"  required>
+
+        @if ($errors->has('satuan'))
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('satuan') }}</strong>
             </span>
          @endif
     </div>

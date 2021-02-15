@@ -40,7 +40,8 @@
                     <th scope="col" class="sort" data-sort="name">ID Barang</th>
                     <th scope="col" class="sort" data-sort="budget">Nama Barang</th>
                     <th scope="col" class="sort" data-sort="status">Jenis Barang</th>
-                    <th scope="col" class="sort" data-sort="completion">Deskripsi</th>
+                    <th scope="col" class="sort" data-sort="status">Harga</th>
+                    <th scope="col" class="sort" data-sort="completion">Stock</th>
                     @if(Auth()->user()->role == 1)
                     <th scope="col">Action</th>
                     @endif
@@ -62,7 +63,10 @@
                       <span class="name mb-0 text-sm">{{$b->jenis->jenis_barang}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->deskripsi}}</span>
+                      <span class="name mb-0 text-sm">Rp. {{$b->harga}}</span>
+                    </td>
+                    <td>
+                      <span class="name mb-0 text-sm">{{$b->stock}}</span>
                     </td>
                     @if(Auth()->user()->role == 1)
                      <td class="text-left">

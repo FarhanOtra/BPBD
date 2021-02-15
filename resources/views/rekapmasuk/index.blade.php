@@ -94,7 +94,7 @@
                         <span class="name mb-0 text-sm">{{$b->jumlah}}</span>
                     </td>
                     <td>
-                        <span class="name mb-0 text-sm">{{$b->satuan}}</span>
+                        <span class="name mb-0 text-sm">{{$b->barang->satuan}}</span>
                     </td>
                     <td>
                     <?php 
@@ -127,7 +127,16 @@
                 jQuery(document).ready(function ( $ ) {
                     $('#table').DataTable({
                         dom: 'Bfrtip',
-                        buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                        buttons: [{
+                          extend: 'pdf',
+                          title: 'Rekap Barang Masuk',
+                        }, {
+                          extend: 'print',
+                          title: 'Rekap Barang Masuk',
+                        }, {
+                          extend: 'excel',
+                          title: 'Rekap Barang Masuk',
+                        }]
                     });
                 });
               </script>

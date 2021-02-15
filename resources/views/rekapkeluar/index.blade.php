@@ -20,11 +20,11 @@
         <div class="header-body">
           <div class="row align-items-center">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Rekap Masuk</h6>
+              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Rekap Keluar</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Rekap Berita Masuk</li>
+                  <li class="breadcrumb-item active" aria-current="page">Rekap Barang Keluar</li>
                 </ol>
               </nav>
             </div>
@@ -56,7 +56,6 @@
                     <th scope="col" class="sort" data-sort="status">Jenis Bantuan</th>
                     <th scope="col" class="sort" data-sort="status">Jumlah Bantuan</th>
                     <th scope="col" class="sort" data-sort="status">Satuan</th>
-                    <th scope="col" class="sort" data-sort="status">Kondisi</th>
                     @if(Auth()->user()->role == 1)
                     <!-- <th scope="col">Action</th> -->
                     @endif
@@ -94,10 +93,7 @@
                         <span class="name mb-0 text-sm">{{$b->jumlah}}</span>
                     </td>
                     <td>
-                        <span class="name mb-0 text-sm">{{$b->satuan}}</span>
-                    </td>
-                    <td>
-                        <span class="name mb-0 text-sm">{{$b->keterangan}}</span>
+                        <span class="name mb-0 text-sm">{{$b->barang->satuan}}</span>
                     </td>
                     @if(Auth()->user()->role == 1)
 
@@ -115,13 +111,13 @@
                         dom: 'Bfrtip',
                         buttons: [{
                           extend: 'pdf',
-                          title: 'Rekap Barang Masuk',
+                          title: 'Rekap Barang Keluar',
                         }, {
                           extend: 'print',
-                          title: 'Rekap Barang Masuk',
+                          title: 'Rekap Barang Keluar',
                         }, {
                           extend: 'excel',
-                          title: 'Rekap Barang Masuk',
+                          title: 'Rekap Barang Keluar',
                         }]
                     });
                 });

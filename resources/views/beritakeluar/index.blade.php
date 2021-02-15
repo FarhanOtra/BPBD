@@ -53,6 +53,7 @@
                   <tr>
                     <th scope="col" class="sort">No.</th>
                     <th scope="col" class="sort">Tanggal</th>
+                    <th scope="col" class="sort">Kegiatan</th>
                     <th scope="col" class="sort" >Pihak Pertama</th>
                     <th scope="col" class="sort" >Pihak Kedua</th>
 
@@ -83,6 +84,9 @@
                         $tahun = strftime("%Y", strtotime($b->tanggal));
                     ?>
                       <span class="name mb-0 text-sm">{{$hari}}, {{$tgl}} {{$bulan}} {{$tahun}}</span>
+                    </td>
+                    <td>
+                      <span class="name mb-0 text-sm">{{$b->kegiatan}}</span>
                     </td>
                     <td>
                       <span class="name mb-0 text-sm">{{$b->pihak_kedua->nama}} - {{$b->pihak_kedua->instansi}}</span>

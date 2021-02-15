@@ -54,7 +54,6 @@ class BeritaKeluarController extends Controller
         $pihakpertama = new Pihak_pertama;
 
         $pihakpertama->nama = $request->p_nama;
-        $pihakpertama->pangkat = $request->p_pangkat;
         $pihakpertama->jabatan = $request->p_jabatan;
         $pihakpertama->instansi = $request->p_instansi;
 
@@ -74,6 +73,7 @@ class BeritaKeluarController extends Controller
         $berita_keluar = new Berita_keluar;
 
         $berita_keluar->tanggal = $request->tanggal;
+        $berita_keluar->kegiatan = $request->kegiatan;
         $berita_keluar->pihak_pertama_id = $id_p;
         $berita_keluar->pihak_kedua_id = $id_d;
 
@@ -83,7 +83,6 @@ class BeritaKeluarController extends Controller
 
         $barang_id  = $request->barang_id;
         $jumlah     = $request->jumlah;
-        $satuan     = $request->satuan;
 
         for($i=0; $i<count($request->id);$i++)
         {
@@ -91,9 +90,15 @@ class BeritaKeluarController extends Controller
                 'berita_keluar_id' => $id_bm,
                 'barang_id' => $barang_id[$i],
                 'jumlah' => $jumlah[$i],
-                'satuan' => $satuan[$i],
-
             ];
+
+            $id_barang = $request->barang_id[$i] ;
+            $cekstock = Barang::where('id',$id_barang)->first();
+            
+            $stock = $cekstock->stock - $request->jumlah[$i];
+            Barang::where('id',$barang_id[$i])->UPDATE(
+                ['stock' => $stock]
+            );
 
             Detail_keluar::insert($datasave);
         }

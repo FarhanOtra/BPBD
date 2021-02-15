@@ -23,7 +23,9 @@ class AllTable extends Migration
             $table->bigincrements('id');
             $table->string('id_barang');
             $table->string('nama_barang');
-            $table->string('deskripsi')->nullable();
+            $table->integer('harga');
+            $table->string('satuan');
+            $table->integer('stock');
             $table->unsignedBigInteger('jenisbarang_id')->nullable();
             $table->timestamps();
 
@@ -76,6 +78,7 @@ class AllTable extends Migration
         Schema::create('berita_keluar', function (Blueprint $table) {
             $table->bigincrements('id');
             $table->date('tanggal');
+            $table->string('kegiatan');
             $table->unsignedBigInteger('pihak_pertama_id')->nullable();
             $table->unsignedBigInteger('pihak_kedua_id')->nullable();
             $table->timestamps();
@@ -89,10 +92,7 @@ class AllTable extends Migration
             $table->unsignedBigInteger('berita_masuk_id')->nullable();
             $table->unsignedBigInteger('barang_id')->nullable();
             $table->date('exp');
-            $table->float('harga');
             $table->integer('jumlah');
-            $table->string('satuan');
-            $table->integer('stock');
             $table->timestamps();
 
             $table->foreign('berita_masuk_id')->references('id')->on('berita_masuk')->onDelete('set null');
@@ -104,8 +104,6 @@ class AllTable extends Migration
             $table->unsignedBigInteger('berita_keluar_id')->nullable();
             $table->unsignedBigInteger('barang_id')->nullable();
             $table->integer('jumlah');
-            $table->string('satuan');
-            $table->string('keterangan');
             $table->timestamps();
 
             $table->foreign('berita_keluar_id')->references('id')->on('berita_keluar')->onDelete('set null');
