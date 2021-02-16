@@ -172,7 +172,7 @@ class BeritaKeluarController extends Controller
       
 
         $barang = DB::table('berita_keluar')
-        ->select('detail_keluar.*','barang.nama_barang','barang.deskripsi')
+        ->select('detail_keluar.*','barang.nama_barang','barang.satuan','barang.harga')
         ->join('pihak_pertama','berita_keluar.pihak_pertama_id','=','pihak_pertama.id')
         ->join('pihak_kedua','berita_keluar.pihak_kedua_id','=','pihak_kedua.id')
         ->join('detail_keluar','berita_keluar.id','=','detail_keluar.berita_keluar_id')
@@ -198,9 +198,8 @@ class BeritaKeluarController extends Controller
         // ->where('id', $id)
         // ->get();
     
-
         $barang = DB::table('berita_keluar')
-        ->select('detail_keluar.*','barang.nama_barang','barang.deskripsi')
+        ->select('detail_keluar.*','barang.nama_barang','barang.satuan','barang.harga')
         ->join('pihak_pertama','berita_keluar.pihak_pertama_id','=','pihak_pertama.id')
         ->join('pihak_kedua','berita_keluar.pihak_kedua_id','=','pihak_kedua.id')
         ->join('detail_keluar','berita_keluar.id','=','detail_keluar.berita_keluar_id')
@@ -214,7 +213,7 @@ class BeritaKeluarController extends Controller
         ->where('id', $id)
         ->get();
         
-        $pdf = PDF::loadview('beritakeluar/print',['beritakeluar'=>$beritakeluar,'barang'=>$barang]);
+        $pdf = PDF::loadview('beritakeluar/print2',['beritakeluar'=>$beritakeluar,'barang'=>$barang]);
         
         return $pdf->stream();
     }
