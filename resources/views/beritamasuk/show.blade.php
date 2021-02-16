@@ -7,12 +7,12 @@
         <div class="header-body">
           <div class="row align-items-center">
             <div class="col-lg-8 col-7">
-              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Berita keluar</h6>
+              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Berita Masuk</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="{{route('beritakeluar.index')}}">Berita keluar</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Tambah Berita keluar</li>
+                  <li class="breadcrumb-item"><a href="{{route('beritamasuk.index')}}">Berita Masuk</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Tambah Berita Masuk</li>
                 </ol>
               </nav>
             </div>
@@ -30,11 +30,11 @@
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <h3 class="col-12 mb-0">{{ __('Tambah Berita keluar') }}</h3>
+                            <h3 class="col-12 mb-0">{{ __('Tambah Berita Masuk') }}</h3>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('beritakeluar.store') }}" autocomplete="off">
+                        <form method="post" action="{{ route('beritamasuk.store') }}" autocomplete="off">
                             @csrf
                             @if (session('status'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -46,9 +46,9 @@
                             @endif
 
                             <div class="pl-lg-4">
-                                @include('beritakeluar._form')
-                                <div class="text-left">
-                                    <button type="submit" class="btn btn-success ml-4 mt-4">{{ __('Tambah') }}</button>
+                                @include('beritamasuk._detail)
+                                <div class="text-left ml-4">
+                                    <button type="submit" class="btn btn-success mt-4">{{ __('Tambah') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -58,34 +58,6 @@
         </div>    
     @include('layouts.footers.auth')
   </div>
-  <script>
-   var i = 0;
-            
-            $('#tombolTambahSelect').on('click',function(){
-                i++;
-                $('#tambahSelect').append(`<tr>
-                        <input name="id[]" type="hidden" value="`+i+`">
-                        <td style="width:60%">
-                            <select class="form-control" name="barang_id[]">
-                            @foreach ($barang as $b)
-                                <option value="{{ $b->id }}">{{ $b->nama_barang}}</option>
-                            @endforeach
-                            </select>
-                        </td>
-                        <td>
-                            <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('id_barang') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-danger remove-tr ml-4">-</button>
-                        </td>
-                    </tr>`)
-            })
-
-            $(document).on('click', '.remove-tr', function(){  
-                $(this).parents('tr').remove();
-            });
-
-  </script>
 @endsection
 
 @push('js')

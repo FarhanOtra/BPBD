@@ -48,6 +48,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('barang.index') }}">
+                        <i class="fa fa-bars text-blue"></i> {{ __('List Barang') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('beritamasuk.index') }}">
                         <i class="fa fa-tasks text-green" style="color: #f4645f;"></i> {{ __('Barang Masuk') }}
                     </a>
@@ -55,11 +60,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('beritakeluar.index') }}">
                         <i class="ni ni-single-copy-04" style="color: #f4645f;"></i> {{ __('Berita Acara') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('barang.index') }}">
-                        <i class="fa fa-bars text-blue"></i> {{ __('List Barang') }}
                     </a>
                 </li>
                 <li class="nav-item">

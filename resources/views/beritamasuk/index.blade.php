@@ -97,7 +97,7 @@
                     </td>
                     @if(Auth()->user()->role == 1)
                     <td class="text-left">
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.print',[$b->id])}}" title="Print Berita Acara"><i class="fas fa-print"></i></a>
+                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.show',[$b->id])}}" title="Show Berita Acara"><i class="fas fa-search"></i></a>
                         <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.destroy',[$b->id])}}" title="Hapus"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
                     </td>
                     @endif
