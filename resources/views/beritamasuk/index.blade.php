@@ -47,7 +47,7 @@
             <!-- Card header -->
             <div class="card-header border-0">
 
-              <h3 class="mb-0">List Berita Masuk</h3>
+              <h3 class="mb-0">List Barang Masuk</h3>
 
             </div>
             <!-- Light table -->
