@@ -34,10 +34,13 @@ class HomeController extends Controller
         $exp = Detail_masuk::all(); 
         $count = Berita_masuk::count('id');
         $count1 = Berita_keluar::count('id');
-        $max = Barang::max('nama_barang');
-        $min = Barang::min('nama_barang');
+        $max = Barang::orderBy('stock','desc')
+        ->first();
+        $min = Barang::orderBy('stock','asc')
+        ->first();
         $beritamasuk = Berita_masuk::orderBy('tanggal','desc')->limit(5)->get(); 
         $beritakeluar = Berita_keluar::orderBy('tanggal','desc')->limit(5)->get();
+        $exp=Detail_masuk::orderBy('exp','desc')->limit(10)->get();
         return view('dashboard',compact('count','count1','max','min','beritamasuk','beritakeluar','exp'));
     }
 

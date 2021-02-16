@@ -68,7 +68,7 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Stok Paling Banyak</h5>
                                     <!-- <span class="h2 font-weight-bold mb-0">Produk</span> -->
-                                    <span class="h2 font-weight-bold mb-0">{{$max}}</span>
+                                    <span class="h2 font-weight-bold mb-0">{{$max->nama_barang}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -90,7 +90,7 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Stok Paling Sedikit</h5>
                                     <!-- <span class="h2 font-weight-bold mb-0">49,65%</span> -->
-                                    <span class="h2 font-weight-bold mb-0">{{$min}}</span>
+                                    <span class="h2 font-weight-bold mb-0">{{$min->nama_barang}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-info text-white rounded-circle shadow">

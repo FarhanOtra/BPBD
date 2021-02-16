@@ -145,7 +145,7 @@
                                         <td style="width:60%">
                                             <select class="form-control" name="barang_id[]">
                                             @foreach ($barang as $b)
-                                                <option value="{{ $b->id }}">{{ $b->nama_barang}}</option>
+                                                <option value="{{ $b->id }}">{{ $b->nama_barang}} @foreach($b->detail_masuk as $d){{$d->exp}}@endforeach</option>
                                             @endforeach
                                             </select>
                                         </td>
