@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;    
 use App\Barang;
 use App\Jenis_barang;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BarangController extends Controller
 {
@@ -55,8 +56,10 @@ class BarangController extends Controller
         $barang->stock = 0;
 
         $barang->save();
-
+        
+        Alert::success('Barang', 'Berhasil Ditambah!');
         return redirect()->route('barang.index');
+
     }
 
     /**
@@ -100,6 +103,7 @@ class BarangController extends Controller
             'satuan' => $request->satuan
         ]);
 
+        Alert::success('Barang', 'Berhasil Diedit!');
         return redirect()->route('barang.index');
     }
 

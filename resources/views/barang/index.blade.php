@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.semanticui.min.css">
 
     <!-- Header -->
+    @include('sweetalert::alert')
+    
     <div class="header bg-gradient-primary pb-7 pt-5 pt-md-7">
       <div class="container-fluid">
         <div class="header-body">
@@ -86,7 +88,7 @@
                     @if(Auth()->user()->role == 1)
                      <td class="text-left">
                         <a class="btn btn-sm btn-neutral" href="{{route('barang.edit',[$b->id])}}"><i class="fa fa-edit" style="color: green;" aria-hidden="true"></i></a>
-                        <a class="btn btn-sm btn-neutral" href="{{route('barang.destroy',[$b->id])}}"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
+                        <a class="btn btn-sm btn-neutral brgdeletebtn" href="{{route('barang.destroy',[$b->id])}}"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
                     </td>
                     @endif
                   </tr>
@@ -103,8 +105,7 @@
             <!-- Card footer -->
           </div>
         </div>
-      </div>
-      
+      </div>  
     @include('layouts.footers.auth')
   </div>
 @endsection

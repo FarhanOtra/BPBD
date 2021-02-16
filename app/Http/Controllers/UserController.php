@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -46,8 +47,10 @@ class UserController extends Controller
             'instansi' => $request->instansi,
             'password' => Hash::make($request->password)
         ]);
-        //$user->save();
 
+        //$user->save();
+        
+        Alert::success('User', 'Berhasil Ditambah!');
         return redirect()->route('user.index');
     }
 
@@ -70,7 +73,8 @@ class UserController extends Controller
             'password' => Hash::make($request->password)
         ]);
         //$user->save();
-
+        
+        Alert::success('User', 'Berhasil Diedit!');
         return redirect()->route('user.index');
     }
 
