@@ -118,7 +118,7 @@
           </div>
         </div>
       </div>
-
+    @include('sweetalert::alert')
     @include('layouts.footers.auth')
   </div>
 @endsection

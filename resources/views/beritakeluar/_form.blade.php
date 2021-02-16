@@ -149,11 +149,9 @@
                                             @endforeach
                                             </select>
                                         </td>
-                                        
                                         <td>
                                             <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
                                         </td>
-
                                         <td>
                                             <button type="button" class="btn btn-success" id="tombolTambahSelect">+</button>
                                         </td>
