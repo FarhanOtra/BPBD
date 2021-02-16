@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Berita_keluar extends Model
 {
+    
     protected $table = 'berita_keluar';
 
     public function pihak_pertama()
