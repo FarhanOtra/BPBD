@@ -89,10 +89,10 @@
                       <span class="name mb-0 text-sm">{{$b->kegiatan}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->pihak_kedua->nama}} - {{$b->pihak_kedua->instansi}}</span>
+                      <span class="name mb-0 text-sm">{{$b->pihak_pertama->nama}} - {{$b->pihak_pertama->instansi}}</span>
                     </td>
                     <td>
-                      <span class="name mb-0 text-sm">{{$b->pihak_pertama->nama}} - {{$b->pihak_pertama->instansi}}</span>
+                      <span class="name mb-0 text-sm">{{$b->pihak_kedua->nama}} - {{$b->pihak_kedua->instansi}}</span>
                     </td>
                     @if(Auth()->user()->role == 1)
                     <td class="text-left">
