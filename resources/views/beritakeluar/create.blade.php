@@ -48,7 +48,7 @@
                             <div class="pl-lg-4">
                                 @include('beritakeluar._form')
                                 <div class="text-left">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Tambah') }}</button>
+                                    <button type="submit" class="btn btn-success ml-4 mt-4">{{ __('Tambah') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -76,7 +76,7 @@
                             <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('id_barang') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger remove-tr">-</button>
+                            <button type="button" class="btn btn-danger remove-tr ml-4">-</button>
                         </td>
                     </tr>`)
             })

@@ -19,32 +19,12 @@
 </div>                    
 </div>
 <div>
-<div class="card bg-secondary shadow mb-4">
-                    <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <h3 class="col-12 mb-0">{{ __('Kegiatan') }}</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                    <div class="form-group{{ $errors->has('kegiatan') ? ' has-danger' : '' }}">
-        <input type="text" name="kegiatan" id="input-kegiatan" class="form-control form-control-alternative{{ $errors->has('kegiatan') ? ' is-invalid' : '' }}" placeholder="{{ __('Kegiatan') }}" required autofocus>
-
-        @if ($errors->has('kegiatan'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('kegiatan') }}</strong>
-            </span>
-        @endif
-    </div>
-                    </div>
-</div>                    
-</div>
-<div>
     <div class="row">
         <div class="col-6">
         <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <h3 class="col-12 mb-0">{{ __('Pihak Pertama') }}</h3>
+                            <h3 class="col-12 mb-0">{{ __('Penerima') }}</h3>
                         </div>
                     </div>
                     <div class="card-body">
@@ -82,7 +62,7 @@
         <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <h3 class="col-12 mb-0">{{ __('Pihak Kedua') }}</h3>
+                            <h3 class="col-12 mb-0">{{ __('Donatur') }}</h3>
                         </div>
                     </div>
                     <div class="card-body">
@@ -132,26 +112,26 @@
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col" class="sort" data-sort="name" style="width:60%">Nama Barang</th>
-                    <th scope="col" class="sort" data-sort="status">Jumlah</th>
-                    <th scope="col" class="sort" data-sort="completion"></th>
+                    <th scope="col" class="sort" style="width: 40%">Nama Barang</th>
+                    <th scope="col" class="sort" style="width: 30%">Expired</th>
+                    <th scope="col" class="sort" style="width: 30%">Jumlah</th>
+                    <th scope="col" class="sort" ></th>
                   </tr>
                 </thead>
-                <tbody class="list">
-                    <div class="form-group" id="tampilSelect">
-                                <table class="container-fluid" id="tambahSelect">
+                <tbody class="list" id="tampilSelect">
+                        <table class="container-fluid" id="tambahSelect">
                                     <tr>
                                         <input name="id[]" type="hidden" value="1">
-                                        <td style="width:60%">
+                                        <td style="width: 40%">
                                             <select class="form-control" name="barang_id[]">
                                             @foreach ($barang as $b)
-
-                                                <option value="{{ $b->id }}">{{ $b->nama_barang}} @foreach($b->detail_masuk as $d){{$d->exp}}@endforeach</option>
-                                                
+                                                <option value="{{ $b->id }}">{{ $b->nama_barang}}</option>
                                             @endforeach
                                             </select>
                                         </td>
-                                        <td>
+                                        <td style="width: 30%">
+                                            <input type="date" name="exp[]" id="input-exp" class="form-control form-control-alternative{{ $errors->has('exp[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Expired') }}" required autofocus>
+                                        <td style="width: 30%">
                                             <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
                                         </td>
                                         <td>
@@ -164,5 +144,5 @@
               </table>
             </div>
 
-                    </div>
-                </div>
+        </div>
+    </div>
