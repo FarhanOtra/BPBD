@@ -47,6 +47,7 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
+                @if(Auth()->user()->role == 1)
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('beritamasuk.index') }}">
                         <i class="fa fa-tasks text-green" style="color: #f4645f;"></i> {{ __('Barang Masuk') }}
@@ -85,12 +86,12 @@
                         </ul>
                     </div>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.index') }}">
                         <i class="ni ni-circle-08 text-yellow"></i> {{ __('Kelola User') }}
                     </a>
                 </li>
+                @endif
             </ul>
             <!-- Divider -->
             <hr class="my-3">
