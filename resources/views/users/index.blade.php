@@ -2,6 +2,9 @@
 
 @section('content')
     <!-- Header -->
+    
+   @include('sweetalert::alert')
+
     <div class="header bg-gradient-primary pb-7 pt-5 pt-md-7">
       <div class="container-fluid">
         <div class="header-body">

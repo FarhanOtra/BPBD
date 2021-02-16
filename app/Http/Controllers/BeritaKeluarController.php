@@ -10,6 +10,7 @@ use App\Pihak_kedua;
 use App\Detail_keluar;
 use App\Barang;
 use PDF;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -102,7 +103,7 @@ class BeritaKeluarController extends Controller
 
             Detail_keluar::insert($datasave);
         }
-    
+        Alert::success('Berita Acara', 'Berhasil Ditambah!');
         return redirect()->route('beritakeluar.index');
     }
 

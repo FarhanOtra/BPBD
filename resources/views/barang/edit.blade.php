@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('sweetalert::alert')
 @section('content')
     <!-- Header -->
     <div class="header bg-gradient-primary pb-7 pt-5 pt-md-7">

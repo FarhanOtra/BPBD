@@ -9,6 +9,7 @@ use App\Donatur;
 use App\Penerima;
 use App\Detail_masuk;
 use App\Masuk;
+use RealRashid\SweetAlert\Facades\Alert;
 
 use PDF;
 
@@ -105,7 +106,7 @@ class BeritaMasukController extends Controller
             );
             Detail_masuk::insert($datasave);
         }
-    
+        Alert::success('Stok Barang', 'Berhasil Ditambah!');
         return redirect()->route('beritamasuk.index');
     }
 
