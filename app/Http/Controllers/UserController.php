@@ -46,6 +46,7 @@ class UserController extends Controller
             'instansi' => $request->instansi,
             'password' => Hash::make($request->password)
         ]);
+
         //$user->save();
 
         return redirect()->route('user.index');
