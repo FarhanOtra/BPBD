@@ -25,8 +25,8 @@
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
-                            @if(isset($exp->barang_id))
                             @foreach($exp as $e)
+                            @if(isset($e->barang_id))
                             <div class="alert alert-danger" role="alert">
                             <?php
                                 setlocale(LC_ALL, 'id-ID', 'id_ID');
@@ -36,8 +36,8 @@
                             ?>
                             <b>{{$e->barang->nama_barang}}</b> akan segera expired pada <b>{{$hari}}, {{date('d F Y',strtotime($e->exp))}}</b>
                             </div>
-                            @endforeach
                             @endif
+                            @endforeach
                             
                                 <!-- <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
                                 <h2 class="mb-0">Total orders</h2> -->
