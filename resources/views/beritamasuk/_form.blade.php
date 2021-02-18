@@ -123,7 +123,7 @@
                                     <tr>
                                         <input name="id[]" type="hidden" value="1">
                                         <td style="width: 40%">
-                                            <select class="form-control" name="barang_id[]">
+                                            <select class="form-control" name="barang_id[]" required>
                                             @foreach ($barang as $b)
                                                 <option value="{{ $b->id }}">{{ $b->nama_barang}}</option>
                                             @endforeach
@@ -132,7 +132,7 @@
                                         <td style="width: 30%">
                                             <input type="date" name="exp[]" id="input-exp" class="form-control form-control-alternative{{ $errors->has('exp[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Expired') }}" required autofocus>
                                         <td style="width: 30%">
-                                            <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
+                                            <input type="number" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-success" id="tombolTambahSelect">+</button>

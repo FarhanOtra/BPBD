@@ -46,6 +46,10 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'id_barang' => 'required|unique:barang',
+        ]);
+
         $barang = new Barang;
 
         $barang->id_barang = $request->id_barang;
@@ -95,6 +99,10 @@ class BarangController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'id_barang' => 'required|unique:barang,id_barang,'.$id,
+        ]);
+
         Barang::where('id',$id)->UPDATE([
             'id_barang' => $request->id_barang,
             'nama_barang' => $request->nama_barang,

@@ -66,17 +66,17 @@
                 $('#tambahSelect').append(`<tr>
                         <input name="id[]" type="hidden" value="`+i+`">
                         <td style="width:60%">
-                            <select class="form-control" name="barang_id[]">
+                            <select class="form-control" name="barang_id[]" required>
                             @foreach ($barang as $b)
                                 <option value="{{ $b->id }}">{{ $b->nama_barang}}</option>
                             @endforeach
                             </select>
                         </td>
                         <td>
-                            <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('id_barang') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
+                            <input type="number" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('id_barang') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger remove-tr ml-4">-</button>
+                            <button type="button" class="btn btn-danger remove-tr">-</button>
                         </td>
                     </tr>`)
             })

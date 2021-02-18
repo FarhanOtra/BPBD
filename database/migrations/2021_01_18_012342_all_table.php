@@ -79,6 +79,7 @@ class AllTable extends Migration
             $table->bigincrements('id');
             $table->date('tanggal');
             $table->string('kegiatan');
+            $table->string('jenis');
             $table->unsignedBigInteger('pihak_pertama_id')->nullable();
             $table->unsignedBigInteger('pihak_kedua_id')->nullable();
             $table->timestamps();

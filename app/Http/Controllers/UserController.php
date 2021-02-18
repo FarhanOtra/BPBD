@@ -39,7 +39,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         DB::table('users')->insert([
-            'id' => $request->id,
             'name' => $request->name,
             'nohp' => $request->nohp,
             'email' => $request->email,
@@ -64,7 +63,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         User::where('id',$id)->update([
-            'id' => $request->id,
             'name' => $request->name,
             'nohp' => $request->nohp,
             'email' => $request->email,

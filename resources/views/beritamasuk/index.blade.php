@@ -97,8 +97,49 @@
                     </td>
                     @if(Auth()->user()->role == 1)
                     <td class="text-left">
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.show',[$b->id])}}" title="Show Berita Acara"><i class="fas fa-search"></i></a>
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.destroy',[$b->id])}}" title="Hapus"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
+                        <a class="btn btn-sm btn-neutral" type="button" data-toggle="modal" data-target="#exampleModal" title="Show Berita Acara"><i class="fas fa-search" style="color: blue;"></i></a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">List Barang</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                  <table class="table table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No.</th>
+                                            <th>ID Barang</th>
+                                            <th>Nama Barang</th>
+                                            <th>Jumlah</th>
+                                            <th>Harga</th>
+                                            <th>Expire</th>
+                                            <th>Satuan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($b->detail_masuk as $c)
+                                        <tr>
+                                            <td class="text-center">{{$loop->iteration}}</td>
+                                            <td>{{$c->barang->id_barang}}</td>
+                                            <td>{{$c->barang->nama_barang}}</td>
+                                            <td>{{$c->jumlah}}</td>
+                                            <td>{{$c->barang->harga}}</td>
+                                            <td>{{$c->exp}}</td>
+                                            <td>{{$c->barang->satuan}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="btn btn-sm btn-neutral" href="{{route('beritamasuk.destroy',[$b->id])}}" onclick="return confirm('Yakin Ingin Menghapus?')" title="Hapus"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
                     </td>
                     @endif
                   </tr>
@@ -106,7 +147,6 @@
                 </tbody>
               </table>
               </div>
-
               <script type="text/javascript"> 
               $.noConflict();
                 jQuery(document).ready(function ( $ ) {

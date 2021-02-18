@@ -36,6 +36,7 @@ class HomeController extends Controller
         $count1 = Berita_keluar::count('id');
         $max = Barang::orderBy('stock','desc')
         ->first();
+        
         $min = Barang::orderBy('stock','asc')
         ->first();
         $beritamasuk = Berita_masuk::orderBy('tanggal','desc')->limit(5)->get(); 

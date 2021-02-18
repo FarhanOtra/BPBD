@@ -1,5 +1,5 @@
 <div>
-<div class="card bg-secondary shadow mb-4">
+    <div class="card bg-secondary shadow mb-4">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <h3 class="col-12 mb-0">{{ __('Tanggal') }}</h3>
@@ -20,14 +20,15 @@
 </div>
 <div>
 <div class="card bg-secondary shadow mb-4">
-                    <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <h3 class="col-12 mb-0">{{ __('Kegiatan') }}</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                    <div class="form-group{{ $errors->has('kegiatan') ? ' has-danger' : '' }}">
-        <input type="text" name="kegiatan" id="input-kegiatan" class="form-control form-control-alternative{{ $errors->has('kegiatan') ? ' is-invalid' : '' }}" placeholder="{{ __('Kegiatan') }}" required autofocus>
+    <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+            <h3 class="col-12 mb-0">{{ __('Jenis dan Kegiatan') }}</h3>
+        </div>
+    </div>
+    <div class="card-body">
+    <label class="form-control-label">{{ __('Kegiatan') }}</label>
+        <div class="form-group{{ $errors->has('kegiatan') ? ' has-danger' : '' }}">
+            <input type="text" name="kegiatan" id="input-kegiatan" class="form-control form-control-alternative{{ $errors->has('kegiatan') ? ' is-invalid' : '' }}" placeholder="{{ __('Kegiatan') }}" required autofocus>
 
         @if ($errors->has('kegiatan'))
             <span class="invalid-feedback" role="alert">
@@ -35,7 +36,19 @@
             </span>
         @endif
     </div>
-                    </div>
+    <div class="form-group{{ $errors->has('jenis') ? ' has-danger' : '' }}">
+    <label class="form-control-label">{{ __('Jenis Berita Acara') }}</label>
+        <select class="form-control" name="jenis" id="exampleFormControlSelect2" class="form-control form-control-alternative{{ $errors->has('jenis') ? ' is-invalid' : '' }}"  required>
+            <option value="Bantuan">Bantuan</option>
+            <option value="Peminjaman">Peminjaman</option>
+        </select>
+        @if ($errors->has('jenis'))
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('jenis') }}</strong>
+            </span>
+         @endif
+    </div>
+</div>
 </div>                    
 </div>
 <div>
@@ -143,16 +156,16 @@
                                     <tr>
                                         <input name="id[]" type="hidden" value="1">
                                         <td style="width:60%">
-                                            <select class="form-control" name="barang_id[]">
+                                            <select class="form-control" name="barang_id[]" required>
                                             @foreach ($barang as $b)
 
-                                                <option value="{{ $b->id }}">{{ $b->nama_barang}} @foreach($b->detail_masuk as $d){{$d->exp}}@endforeach</option>
+                                                <option value="{{ $b->id }}">{{ $b->nama_barang}}</option>
                                                 
                                             @endforeach
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="text" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
+                                            <input type="number" name="jumlah[]" id="input-jumlah" class="form-control form-control-alternative{{ $errors->has('jumlah[0]') ? ' is-invalid' : '' }}" placeholder="{{ __('Jumlah') }}" required autofocus>
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-success" id="tombolTambahSelect">+</button>

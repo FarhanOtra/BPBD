@@ -75,6 +75,7 @@ class BeritaKeluarController extends Controller
 
         $berita_keluar->tanggal = $request->tanggal;
         $berita_keluar->kegiatan = $request->kegiatan;
+        $berita_keluar->jenis = $request->jenis;
         $berita_keluar->pihak_pertama_id = $id_p;
         $berita_keluar->pihak_kedua_id = $id_d;
 
@@ -156,6 +157,17 @@ class BeritaKeluarController extends Controller
 
         $pihakkedua = Pihak_kedua::find($idd->pihak_kedua_id);
         $pihakkedua->delete();
+
+        $list = Detail_keluar::where('berita_keluar_id',$id)->get();
+        foreach($list as $l){
+            $barang = Barang::where('id',$l->barang_id)->first();
+            $stock = $barang->stock;
+            $jumlah = $l->jumlah;
+            $stockbaru = $stock + $jumlah;
+            Barang::where('id',$l->barang_id)->UPDATE([
+                'stock' => $stockbaru ,
+            ]);
+        };
 
         $detail = Detail_keluar::where('berita_keluar_id',$id)->delete();
 

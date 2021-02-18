@@ -106,7 +106,7 @@ class BeritaMasukController extends Controller
             );
             Detail_masuk::insert($datasave);
         }
-        Alert::success('Stok Barang', 'Berhasil Ditambah!');
+        Alert::success('Berita Masuk', 'Berhasil Ditambah!');
         return redirect()->route('beritamasuk.index');
     }
 
@@ -162,6 +162,17 @@ class BeritaMasukController extends Controller
 
         $donatur = Donatur::find($idd->donatur_id);
         $donatur->delete();
+
+        $list = Detail_masuk::where('berita_masuk_id',$id)->get();
+        foreach($list as $l){
+            $barang = Barang::where('id',$l->barang_id)->first();
+            $stock = $barang->stock;
+            $jumlah = $l->jumlah;
+            $stockbaru = $stock - $jumlah;
+            Barang::where('id',$l->barang_id)->UPDATE([
+                'stock' => $stockbaru ,
+            ]);
+        };
 
         $detail = Detail_masuk::where('berita_masuk_id',$id)->delete();
 

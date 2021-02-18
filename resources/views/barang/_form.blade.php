@@ -40,7 +40,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Rp</span>
         </div>
-        <input type="text" name="harga_barang" id="input-harga_barang" class="form-control {{ $errors->has('harga_barang') ? ' is-invalid' : '' }}" placeholder="{{ __('Harga Barang') }}"  required>
+        <input type="number" name="harga_barang" id="input-harga_barang" class="form-control {{ $errors->has('harga_barang') ? ' is-invalid' : '' }}" placeholder="{{ __('Harga Barang') }}"  required>
         </div>
         @if ($errors->has('harga_barang'))
             <span class="invalid-feedback" role="alert">

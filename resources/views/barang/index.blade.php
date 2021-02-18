@@ -88,7 +88,7 @@
                     @if(Auth()->user()->role == 1)
                      <td class="text-left">
                         <a class="btn btn-sm btn-neutral" href="{{route('barang.edit',[$b->id])}}"><i class="fa fa-edit" style="color: green;" aria-hidden="true"></i></a>
-                        <a class="btn btn-sm btn-neutral brgdeletebtn" href="{{route('barang.destroy',[$b->id])}}"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
+                        <!-- <a class="btn btn-sm btn-neutral brgdeletebtn" href="{{route('barang.destroy',[$b->id])}}" onclick="return confirm('Yakin Ingin Menghapus?')"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a> -->
                     </td>
                     @endif
                   </tr>

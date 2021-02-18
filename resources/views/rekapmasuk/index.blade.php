@@ -87,6 +87,7 @@
                     <td>
                       <span class="name mb-0 text-sm">{{$b->berita_masuk->donatur->instansi}}</span>
                     </td>
+                    @if(isset($b->barang))
                     <td>
                       <span class="name mb-0 text-sm">{{$b->barang->nama_barang}}</span>
                     </td>
@@ -96,6 +97,17 @@
                     <td>
                         <span class="name mb-0 text-sm">{{$b->barang->satuan}}</span>
                     </td>
+                    @else
+                    <td>
+                      <span class="name mb-0 text-sm">-</span>
+                    </td>
+                    <td>
+                        <span class="name mb-0 text-sm">{{$b->jumlah}}</span>
+                    </td>
+                    <td>
+                        <span class="name mb-0 text-sm">-</span>
+                    </td>
+                    @endif
                     <td>
                     <?php 
                         setlocale(LC_ALL, 'id-ID', 'id_ID');

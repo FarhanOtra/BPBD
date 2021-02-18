@@ -1,14 +1,3 @@
-    <div class="form-group{{ $errors->has('id') ? ' has-danger' : '' }}">
-        <label class="form-control-label" for="input-id">{{ __('ID') }}</label>
-        <input type="text" name="id" id="input-id" class="form-control form-control-alternative{{ $errors->has('id') ? ' is-invalid' : '' }}" placeholder="{{ __('ID') }}" value="{{$user->id}}" required autofocus>
-
-        @if ($errors->has('id'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('id') }}</strong>
-            </span>
-        @endif
-    </div>
-
     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
         <label class="form-control-label" for="input-nama">{{ __('Nama') }}</label>
         <input type="text" name="name" id="input-nama" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Nama') }}" value="{{$user->name}}" required>

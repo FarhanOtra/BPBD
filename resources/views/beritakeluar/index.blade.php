@@ -53,6 +53,7 @@
                   <tr>
                     <th scope="col" class="sort">No.</th>
                     <th scope="col" class="sort">Tanggal</th>
+                    <th scope="col" class="sort">Jenis</th>
                     <th scope="col" class="sort">Kegiatan</th>
                     <th scope="col" class="sort" >Pihak Pertama</th>
                     <th scope="col" class="sort" >Pihak Kedua</th>
@@ -86,6 +87,9 @@
                       <span class="name mb-0 text-sm">{{$hari}}, {{$tgl}} {{$bulan}} {{$tahun}}</span>
                     </td>
                     <td>
+                      <span class="name mb-0 text-sm">{{$b->jenis}}</span>
+                    </td>
+                    <td>
                       <span class="name mb-0 text-sm">{{$b->kegiatan}}</span>
                     </td>
                     <td>
@@ -96,9 +100,12 @@
                     </td>
                     @if(Auth()->user()->role == 1)
                     <td class="text-left">
-                        <a class="btn btn-sm btn-neutral" title="Print BA Bantuan" href="{{route('beritakeluar.print',[$b->id])}}"><i class="fa fa-print" aria-hidden="true"></i> BA Bantuan</a>
-                        <a class="btn btn-sm btn-neutral" title="Print BA Peminjaman" href="{{route('beritakeluar.print2',[$b->id])}}"><i class="fa fa-print" aria-hidden="true"></i> BA Peminjaman</a>
-                        <a class="btn btn-sm btn-neutral" href="{{route('beritakeluar.destroy',[$b->id])}}"><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
+                      @if($b->jenis == "Bantuan")
+                        <a class="btn btn-sm btn-neutral" title="Print" href="{{route('beritakeluar.print',[$b->id])}}"><i class="fa fa-print" aria-hidden="true"></i></a>
+                      @elseif($b->jenis == "Peminjaman")
+                        <a class="btn btn-sm btn-neutral" title="Print" href="{{route('beritakeluar.print2',[$b->id])}}"><i class="fa fa-print" aria-hidden="true"></i></a>
+                      @endif  
+                        <a class="btn btn-sm btn-neutral" href="{{route('beritakeluar.destroy',[$b->id])}}" onclick="return confirm('Yakin Ingin Menghapus?')" ><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></a>
                     </td>
                     @endif
                   </tr>
