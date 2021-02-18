@@ -7,12 +7,12 @@
         <div class="header-body">
           <div class="row align-items-center">
             <div class="col-lg-8 col-7">
-              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Berita Masuk</h6>
+              <h6 class="h2 text-white d-inline-block mt-0 mb-0">Barang Masuk</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="{{route('beritamasuk.index')}}">Berita Masuk</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Tambah Berita Masuk</li>
+                  <li class="breadcrumb-item"><a href="{{route('beritamasuk.index')}}">Barang Masuk</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Tambah Barang Masuk</li>
                 </ol>
               </nav>
             </div>
@@ -30,7 +30,7 @@
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <h3 class="col-12 mb-0">{{ __('Tambah Berita Masuk') }}</h3>
+                            <h3 class="col-12 mb-0">{{ __('Tambah Barang Masuk') }}</h3>
                         </div>
                     </div>
                     <div class="card-body">
